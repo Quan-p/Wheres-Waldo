@@ -12,7 +12,7 @@ const Home = () => {
                 <div className='howTo'>
                     <h2>How to Play</h2>
                     <ol>
-                        <li>Enter your name and click "Play".</li>
+                        <li>Enter your name and difficulty then click "Play".</li>
                         <li>The timer will start once the image loads.</li>
                         <li>Find the location of a character and click on them.</li>
                         <li>Choose the correct character from the list.</li>
@@ -24,7 +24,12 @@ const Home = () => {
             <form className='playGame'>
                 <h2>Enter Your Name</h2>
                 <input type='text' id='name' placeholder='Anonymous' required></input>
-                <input type='submit' value='PLAY'></input>
+                <p>Difficulty:</p>
+                <input type='radio' name='difficulty' value='Easy'/>Easy
+                <input type='radio' name='difficulty' value='Hard'/>Hard
+                <br/>
+                <br/>
+                <button type='submit'>PLAY</button>
             </form>
         </>
     )
