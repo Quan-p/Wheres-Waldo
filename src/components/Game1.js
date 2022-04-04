@@ -1,4 +1,6 @@
-import famous_dogs from '../assets/famous_dogs.jpg'
+import famous_dogs from '../assets/famous_dogs.jpg';
+import './game.styles.scss'
+
 const Game1 = () => {
     return (
         <>

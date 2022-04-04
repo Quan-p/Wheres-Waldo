@@ -1,4 +1,5 @@
 import AD from '../assets/AD2.222.jpg'
+import './game.styles.scss'
 
 const Game2 = () => {
     return (
