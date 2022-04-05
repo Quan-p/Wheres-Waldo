@@ -1,4 +1,4 @@
-.Dropdown {
+.dropdown {
     display: none;
     display: block;
     position: absolute;
@@ -10,12 +10,14 @@
     color: black;
     border: 2px solid black;
     cursor: pointer;
+    z-index: 999;
 
     .table {
         height: 100%;
         width: auto;
         display: grid;
         grid-auto-rows: 2.7rem;
+        z-index: 999;
     }
 
     .row {
@@ -26,7 +28,7 @@
         padding-right: 0.6rem;
         align-items: center;
     }
-    
+
     .row:hover {
         background-color: lightgrey;
     }

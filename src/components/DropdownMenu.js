@@ -9,13 +9,13 @@ const DropdownMenu = (props) => {
 
     let menuLocation = {};
     menuLocation['--dropdown-left'] = xPos + 20 + 'px';
-    menuLocation['--dropdown-top'] = yPos + 90 + 'px';
+    menuLocation['--dropdown-top'] = yPos + 150 + 'px';
 
     const checkLocation = (char) => {};
 
     return (
         <div>
-            {/* <div className='dropdown'>
+            <div className='dropdown' style={menuLocation}>
                 <div className='table'>
                     {props.characterState.map((char) => {
                         return !char.found ? (
@@ -24,13 +24,13 @@ const DropdownMenu = (props) => {
                                 className='row'
                                 onClick={() => checkLocation(char.name)}
                             >
-                                <img/>
+                                
                                 <p>{char.name}</p>
                             </div>
                         ) : (false);
                     })}
                 </div>
-            </div> */}
+            </div>
         </div>
     );
 };
