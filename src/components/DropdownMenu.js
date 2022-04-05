@@ -11,7 +11,7 @@ const DropdownMenu = (props) => {
     menuLocation['--dropdown-left'] = xPos + 20 + 'px';
     menuLocation['--dropdown-top'] = yPos + 90 + 'px';
 
-    const checkLocation;
+    const checkLocation = (char) => {};
 
     return (
         <div>

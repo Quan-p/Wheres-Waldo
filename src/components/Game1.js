@@ -4,6 +4,7 @@ import CopperHound from '../assets/characters/CopperHound.png';
 import Max from '../assets/characters/Max.png';
 import Snuffles from '../assets/characters/Snuffles.png';
 import './game.styles.scss'
+import DropdownMenu from './DropdownMenu';
 const charState = [
     {
         name: 'Copper',
@@ -43,6 +44,16 @@ const Game1 = () => {
             <h1>Game 1</h1>
             <div className='img-container'>
                 <img src={famous_dogs} alt='dogs' onClick={handleClick} />
+                {showDropdown && (
+                    <DropdownMenu 
+                        characterState={characterState}
+                        setShowDropdown={setShowDropdown}
+                        userCoords={userCoords}
+                        //get location from firebase db
+                        //charlocation={charlocation}
+                        boardSize={boardSize}
+                    />
+                )}
             </div>
         </>
     )
