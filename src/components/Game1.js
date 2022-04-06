@@ -3,8 +3,10 @@ import famous_dogs from '../assets/famous_dogs.jpg';
 import CopperHound from '../assets/characters/CopperHound.png';
 import Max from '../assets/characters/Max.png';
 import Snuffles from '../assets/characters/Snuffles.png';
-import './game.styles.scss'
+import { db, charList } from '../firebase';
 import DropdownMenu from './DropdownMenu';
+import './game.styles.scss';
+
 const charState = [
     {
         name: 'Copper',
@@ -36,6 +38,7 @@ const Game1 = () => {
         let y = e.clientY - boardSize.top;
         setUserCoords([x, y]);
         console.log(x, y);
+        //console.log(charList[0].coords.coords);
         showDropdown ? setShowDropdown(false) : setShowDropdown(true);
     }
 
@@ -50,7 +53,7 @@ const Game1 = () => {
                         setShowDropdown={setShowDropdown}
                         userCoords={userCoords}
                         //get location from firebase db
-                        //charlocation={charlocation}
+                        charList={charList}
                         boardSize={boardSize}
                     />
                 )}
