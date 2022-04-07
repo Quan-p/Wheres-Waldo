@@ -34,10 +34,11 @@ const Game1 = () => {
 
     const handleClick = (e) => {
         boardSize = e.target.getBoundingClientRect();
+        // absolute coordinates on image
         let x = e.clientX - boardSize.left;
         let y = e.clientY - boardSize.top;
         setUserCoords([x, y]);
-        console.log(x, y);
+        console.log(x);
         //console.log(charList[0].coords.coords);
         showDropdown ? setShowDropdown(false) : setShowDropdown(true);
     }
