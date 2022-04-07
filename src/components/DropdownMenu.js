@@ -14,13 +14,16 @@ const DropdownMenu = (props) => {
     const checkLocation = (char) => {
         //console.log(charList[0].coords.x)
         let charName = char;
-        let xCoord = charList.some(e => e.coords.x === xPos);
-        
+        let xPercent = xPos / boardSize.width
         for(let i = 0; i < charList.length; i++) {
-            if (xPos === charList[i].coords.x) {
-                console.log('success')
-            } else console.log('fail')
+            if (
+                xPercent > charList[i].coords.x * .95 &&
+                xPercent < charList[i].coords.x * 1.05
 
+            ) {
+                console.log('success')
+                break
+            } 
         }
         // if(charName) {
         //      console.log('success')
