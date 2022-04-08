@@ -3,6 +3,7 @@ import AD from '../assets/AD2.222.jpg';
 import KennyMcCormick from '../assets/characters/KennyMcCormick.png';
 import Meg_Griffin from '../assets/characters/Meg_Griffin.png';
 import Tom from '../assets/characters/Tom.png';
+import { db, charList } from '../firebase';
 import DropdownMenu from './DropdownMenu';
 import './game.styles.scss';
 const charState = [
@@ -35,7 +36,6 @@ const Game2 = () => {
         let x = e.clientX - boardSize.left;
         let y = e.clientY - boardSize.top;
         setUserCoords([x, y]);
-        console.log(x, y);
         showDropdown ? setShowDropdown(false) : setShowDropdown(true);
     }
 
@@ -50,7 +50,7 @@ const Game2 = () => {
                         setShowDropdown={setShowDropdown}
                         userCoords={userCoords}
                         //get location from firebase db
-                        //charlocation={charlocation}
+                        charList={charList}
                         boardSize={boardSize}
                     />
                 )}
