@@ -38,9 +38,9 @@ const Game1 = () => {
         let x = e.clientX - boardSize.left;
         let y = e.clientY - boardSize.top;
         setUserCoords([x, y]);
-        //console.log(y);
-        //console.log(boardSize.bottom)
-        //console.log(charList[0].coords.coords);
+        // console.log('x ' + x/boardSize.right);
+        // console.log('y ' + y/boardSize.bottom);
+        //console.log(charList[2].coords.x)
         showDropdown ? setShowDropdown(false) : setShowDropdown(true);
     }
 

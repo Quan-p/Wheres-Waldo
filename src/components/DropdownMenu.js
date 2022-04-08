@@ -13,9 +13,9 @@ const DropdownMenu = (props) => {
 
     const checkLocation = (char) => {
         //console.log(charList[0].coords.x)
-        let charName = char;
         let xPercent = xPos / boardSize.width;
         let yPercent = yPos / boardSize.bottom;
+        let charAnswer;
         for(let i = 0; i < charList.length; i++) {
             if (
                 xPercent > charList[i].coords.x * .95 &&
@@ -23,10 +23,12 @@ const DropdownMenu = (props) => {
                 yPercent > charList[i].coords.y * .95 &&
                 yPercent < charList[i].coords.y * 1.05
             ) {
-                console.log('success')
-                break
-            } 
+                charAnswer = charList[i].name;
+            }
         }
+        if(char === charAnswer) {
+            console.log('right')
+        } else console.log('wrong')
     };
 
     return (
