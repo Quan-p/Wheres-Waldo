@@ -19,7 +19,6 @@ const db = getFirestore(app);
 
 // Get a list of cities from your database
 let charList = [];
-
 async function getCharLocation(db) {
   const locationSnapshot = await getDocs(collection(db, 'charLocation'));
   locationSnapshot.forEach((doc) => {
