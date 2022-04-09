@@ -31,6 +31,10 @@ const Game1 = () => {
     const [showDropdown, setShowDropdown] = useState(false);
     const [characterState, setCharacterState] = useState(charState);
     const [userCoords, setUserCoords] = useState([]);
+    const [cursorCoords, setCursorCoords] = useState([]);
+
+    const origWidth = 3000;
+    const origHeight = 3000;
 
     const handleClick = (e) => {
         boardSize = e.target.getBoundingClientRect();
@@ -38,10 +42,18 @@ const Game1 = () => {
         // absolute coordinates on image
         let x = e.clientX - boardSize.left;
         let y = e.clientY - boardSize.top;
-        setUserCoords([x, y]);
-        
-        console.log('x ' + x/(boardSize.right));
-        console.log('y ' + y/(boardSize.bottom));
+        setCursorCoords([x, y]);
+
+        const widthRatio = boardSize.width / origWidth;
+        const heightRatio = boardSize.height / origHeight;
+
+        const originalX = x / widthRatio;
+        const originalY = y / heightRatio;
+
+        const xPercent = originalX/origWidth;
+        const yPercent = originalY/origHeight;
+        setUserCoords([xPercent, yPercent]);
+    
         showDropdown ? setShowDropdown(false) : setShowDropdown(true);
     }
 
@@ -55,6 +67,7 @@ const Game1 = () => {
                         characterState={characterState}
                         setShowDropdown={setShowDropdown}
                         userCoords={userCoords}
+                        cursorCoords={cursorCoords}
                         //get location from firebase db
                         charList={charList}
                         boardSize={boardSize}

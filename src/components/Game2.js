@@ -50,10 +50,6 @@ const Game2 = () => {
         const xPercent = originalX/origWidth;
         const yPercent = originalY/origHeight;
         setUserCoords([xPercent, yPercent]);
-        //console.log(x/boardSize.width, y/boardSize.bottom)
-        //console.log(boardSize)
-        // console.log(originalX/origWidth);
-        // console.log(originalY/origHeight);
 
         showDropdown ? setShowDropdown(false) : setShowDropdown(true);
     }
