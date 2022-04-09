@@ -23,7 +23,9 @@ const DropdownMenu = (props) => {
                 yPercent > charList[i].coords.y * .95 &&
                 yPercent < charList[i].coords.y * 1.05
             ) {
+                
                 charAnswer = charList[i].name;
+                props.setShowDropdown(false);
             }
         }
         if(char === charAnswer) {
