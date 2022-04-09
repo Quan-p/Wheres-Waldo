@@ -30,15 +30,31 @@ const Game2 = () => {
     const [showDropdown, setShowDropdown] = useState(false);
     const [characterState, setCharacterState] = useState(charState);
     const [userCoords, setUserCoords] = useState([]);
+    const [cursorCoords, setCursorCoords] = useState([]);
+
+    const origWidth = 1988;
+    const origHeight = 3708;
 
     const handleClick = (e) => {
         boardSize = e.target.getBoundingClientRect();
         let x = e.clientX - boardSize.left;
         let y = e.clientY - boardSize.top;
-        setUserCoords([x, y]);
-        console.log(x/boardSize.width, y/boardSize.bottom)
+        setCursorCoords([x, y]);
+
+        const widthRatio = boardSize.width / origWidth;
+        const heightRatio = boardSize.height / origHeight;
+
+        const originalX = x / widthRatio;
+        const originalY = y / heightRatio;
+
+        const xPercent = originalX/origWidth;
+        const yPercent = originalY/origHeight;
+        setUserCoords([xPercent, yPercent]);
+        //console.log(x/boardSize.width, y/boardSize.bottom)
         //console.log(boardSize)
-        console.log(y)
+        // console.log(originalX/origWidth);
+        // console.log(originalY/origHeight);
+
         showDropdown ? setShowDropdown(false) : setShowDropdown(true);
     }
 
@@ -52,6 +68,7 @@ const Game2 = () => {
                         characterState={characterState}
                         setShowDropdown={setShowDropdown}
                         userCoords={userCoords}
+                        cursorCoords={cursorCoords}
                         //get location from firebase db
                         charList={charList}
                         boardSize={boardSize}

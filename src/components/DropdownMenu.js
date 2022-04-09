@@ -6,22 +6,22 @@ const DropdownMenu = (props) => {
     const boardSize = props.boardSize;
     let xPos = props.userCoords[0];
     let yPos = props.userCoords[1];
+    let xCursor = props.cursorCoords[0];
+    let yCursor = props.cursorCoords[1];
 
     let menuLocation = {};
-    menuLocation['--dropdown-left'] = xPos + 20 + 'px';
-    menuLocation['--dropdown-top'] = yPos + 150 + 'px';
+    menuLocation['--dropdown-left'] = xCursor + 10 + 'px';
+    menuLocation['--dropdown-top'] = yCursor + 150 + 'px';
 
     const checkLocation = (char) => {
         //console.log(charList[0].coords.x)
-        let xPercent = xPos / boardSize.width;
-        let yPercent = yPos / boardSize.bottom;
         let charAnswer;
         for(let i = 0; i < charList.length; i++) {
             if (
-                xPercent > charList[i].coords.x * .95 &&
-                xPercent < charList[i].coords.x * 1.05 &&
-                yPercent > charList[i].coords.y * .95 &&
-                yPercent < charList[i].coords.y * 1.05
+                xPos > charList[i].coords.x * .95 &&
+                xPos < charList[i].coords.x * 1.05 &&
+                yPos > charList[i].coords.y * .95 &&
+                yPos < charList[i].coords.y * 1.05
             ) {
                 
                 charAnswer = charList[i].name;
