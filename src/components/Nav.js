@@ -1,20 +1,21 @@
 import { Outlet, Link } from 'react-router-dom';
-
+import './Nav.styles.scss'
 const Nav = () => {
     return (
         <>
-            <nav>
-                <ul>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/game1">Game 1</Link>
-                </li>
-                <li>
-                    <Link to="/game2">Game 2</Link>
-                </li>
-                </ul>
+            <nav className='dropdown'>
+                <button class="dropbtn">Dropdown</button>
+                    <div className='dropdown-content'>
+                        <div>
+                            <Link to="/">Home</Link>
+                        </div>
+                        <div>
+                            <Link to="/game1">Game 1</Link>
+                        </div>
+                        <div>
+                            <Link to="/game2">Game 2</Link>
+                        </div>
+                    </div>
             </nav>
             <Outlet />
         </>
