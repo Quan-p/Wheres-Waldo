@@ -3,8 +3,8 @@ import './Nav.styles.scss'
 const Nav = () => {
     return (
         <>
-            <nav className='dropdown'>
-                <button class="dropbtn">Dropdown</button>
+            <nav className='dropdown-nav'>
+                <button className="dropbtn">Dropdown</button>
                     <div className='dropdown-content'>
                         <div>
                             <Link to="/">Home</Link>
