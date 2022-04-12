@@ -12,7 +12,7 @@ const DropdownMenu = (props) => {
     let menuLocation = {};
     menuLocation['--dropdown-left'] = xCursor + 10 + 'px';
     menuLocation['--dropdown-top'] = yCursor + 150 + 'px';
-
+    
     const checkLocation = (char) => {
         let charAnswer;
         for(let i = 0; i < charList.length; i++) {
@@ -22,9 +22,12 @@ const DropdownMenu = (props) => {
                 yPos > charList[i].coords.y * .95 &&
                 yPos < charList[i].coords.y * 1.05
             ) {
-                
                 charAnswer = charList[i].name;
-                props.setShowDropdown(false);
+                
+                setTimeout(() => {
+                    props.setShowDropdown(false);
+                    props.handleFound(charList[i].name);
+                }, 1500);
             }
         }
         if(char === charAnswer) {

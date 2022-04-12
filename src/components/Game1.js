@@ -6,6 +6,8 @@ import Snuffles from '../assets/characters/Snuffles.png';
 import { db, charList } from '../firebase';
 import DropdownMenu from './DropdownMenu';
 import './game.styles.scss';
+import { GamesOutlined } from '@mui/icons-material';
+import GameEnd from './GameEnd';
 
 const charInfo = [
     {
@@ -57,6 +59,25 @@ const Game1 = () => {
         showDropdown ? setShowDropdown(false) : setShowDropdown(true);
     }
 
+    const handleFound = (name) => {
+        setCharacterInfo((state) => {
+            const characters = state.map((char) => {
+                if(char.name === name) {
+                    char.found = true;
+                    return char;
+                } else {
+                    return char;
+                }
+            });
+            return characters;
+        });
+        if (characterInfo.every((char) => char.found === true)) {
+            GameEnd(); 
+        }
+    }
+
+
+
     return (
         <>  
             <div className='header'>
@@ -78,6 +99,7 @@ const Game1 = () => {
                         //get location from firebase db
                         charList={charList}
                         boardSize={boardSize}
+                        handleFound={handleFound}
                     />
                 )}
             </div>

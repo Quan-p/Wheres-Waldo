@@ -5,6 +5,7 @@ import Meg_Griffin from '../assets/characters/Meg_Griffin.png';
 import Tom from '../assets/characters/Tom.png';
 import { db, charList } from '../firebase';
 import DropdownMenu from './DropdownMenu';
+import GameEnd from './GameEnd';
 import './game.styles.scss';
 const charInfo = [
     {
@@ -54,6 +55,23 @@ const Game2 = () => {
         showDropdown ? setShowDropdown(false) : setShowDropdown(true);
     }
 
+    const handleFound = (name) => {
+        setCharacterInfo((state) => {
+            const characters = state.map((char) => {
+                if(char.name === name) {
+                    char.found = true;
+                    return char;
+                } else {
+                    return char;
+                }
+            });
+            return characters;
+        });
+        if (characterInfo.every((char) => char.found === true)) {
+            GameEnd(); 
+        }
+    }
+
     return (
         <>
             <div className='header'>
@@ -76,6 +94,7 @@ const Game2 = () => {
                         //get location from firebase db
                         charList={charList}
                         boardSize={boardSize}
+                        handleFound={handleFound}
                     />
                 )}
             </div>
