@@ -1,10 +1,13 @@
 import { Outlet, Link } from 'react-router-dom';
+import MenuIcon from '@mui/icons-material/Menu';
 import './Nav.styles.scss'
 const Nav = () => {
     return (
         <>
             <nav className='dropdown-nav'>
-                <button className="dropbtn">Dropdown</button>
+                <button className="dropbtn">
+                    <MenuIcon />
+                </button>
                     <div className='dropdown-content'>
                         <div>
                             <Link to="/">Home</Link>
