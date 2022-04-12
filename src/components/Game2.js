@@ -6,7 +6,7 @@ import Tom from '../assets/characters/Tom.png';
 import { db, charList } from '../firebase';
 import DropdownMenu from './DropdownMenu';
 import './game.styles.scss';
-const charState = [
+const charInfo = [
     {
         name: 'Kenny',
         found: false,
@@ -28,7 +28,7 @@ let boardSize;
 
 const Game2 = () => {
     const [showDropdown, setShowDropdown] = useState(false);
-    const [characterState, setCharacterState] = useState(charState);
+    const [characterInfo, setCharacterInfo] = useState(charInfo);
     const [userCoords, setUserCoords] = useState([]);
     const [cursorCoords, setCursorCoords] = useState([]);
 
@@ -69,7 +69,7 @@ const Game2 = () => {
                 <img src={AD} alt='artwork' onClick={handleClick}></img>
                 {showDropdown && (
                     <DropdownMenu 
-                        characterState={characterState}
+                        charInfo={charInfo}
                         setShowDropdown={setShowDropdown}
                         userCoords={userCoords}
                         cursorCoords={cursorCoords}

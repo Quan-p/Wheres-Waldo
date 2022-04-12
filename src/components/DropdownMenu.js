@@ -36,14 +36,14 @@ const DropdownMenu = (props) => {
         <div>
             <div className='dropdown' style={menuLocation}>
                 <div className='table'>
-                    {props.characterState.map((char) => {
+                    {props.charInfo.map((char) => {
                         return !char.found ? (
                             <div
                                 key={char.name}
                                 className='row'
                                 onClick={() => checkLocation(char.name)}
                             >
-                                
+                                <img alt='character' src={char.image}/>
                                 <p>{char.name}</p>
                             </div>
                         ) : (false);

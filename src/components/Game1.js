@@ -7,7 +7,7 @@ import { db, charList } from '../firebase';
 import DropdownMenu from './DropdownMenu';
 import './game.styles.scss';
 
-const charState = [
+const charInfo = [
     {
         name: 'Copper',
         found: false,
@@ -29,7 +29,7 @@ let boardSize;
 
 const Game1 = () => {
     const [showDropdown, setShowDropdown] = useState(false);
-    const [characterState, setCharacterState] = useState(charState);
+    const [characterInfo, setCharacterInfo] = useState(charInfo);
     const [userCoords, setUserCoords] = useState([]);
     const [cursorCoords, setCursorCoords] = useState([]);
 
@@ -71,7 +71,7 @@ const Game1 = () => {
                 <img src={famous_dogs} alt='dogs' onClick={handleClick} />
                 {showDropdown && (
                     <DropdownMenu 
-                        characterState={characterState}
+                        charInfo={charInfo}
                         setShowDropdown={setShowDropdown}
                         userCoords={userCoords}
                         cursorCoords={cursorCoords}
