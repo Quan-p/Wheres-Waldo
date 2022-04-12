@@ -58,8 +58,15 @@ const Game1 = () => {
     }
 
     return (
-        <>
-            <h1>Game 1</h1>
+        <>  
+            <div className='header'>
+                <h1>Game 1</h1>
+                <div className='smallImg'>
+                    <img alt='dog1' src={CopperHound}/>
+                    <img alt='dog2' src={Max}/>
+                    <img alt='dog3' src={Snuffles}/>
+                </div>
+            </div>
             <div className='img-container'>
                 <img src={famous_dogs} alt='dogs' onClick={handleClick} />
                 {showDropdown && (

@@ -56,7 +56,15 @@ const Game2 = () => {
 
     return (
         <>
-            <h1>Game 2</h1>
+            <div className='header'>
+                <h1>Game 2</h1>
+                <div className='smallImg'>
+                    <img alt='dog1' src={KennyMcCormick}/>
+                    <img alt='dog2' src={Meg_Griffin}/>
+                    <img alt='dog3' src={Tom}/>
+                </div>
+            </div>
+            
             <div className='img-container'>
                 <img src={AD} alt='artwork' onClick={handleClick}></img>
                 {showDropdown && (
