@@ -43,7 +43,10 @@ const DropdownMenu = (props) => {
                                 className='row'
                                 onClick={() => checkLocation(char.name)}
                             >
-                                <img alt='character' src={char.image}/>
+                                <div className='iconContainer'>
+                                    <img alt='character' src={char.image}/>
+                                </div>
+                                
                                 <p>{char.name}</p>
                             </div>
                         ) : (false);
