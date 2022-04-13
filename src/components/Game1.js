@@ -7,6 +7,7 @@ import { db, charList } from '../firebase';
 import DropdownMenu from './DropdownMenu';
 import './game.styles.scss';
 import GameEnd from './GameEnd';
+import Popup from './Popup';
 
 const charInfo = [
     {
@@ -34,7 +35,8 @@ const Game1 = () => {
     const [userCoords, setUserCoords] = useState([]);
     const [cursorCoords, setCursorCoords] = useState([]);
     const [showModal, setShowModal] = useState(false);
-    
+    const [popup, setPopup] = useState(false);
+
     const origWidth = 3000;
     const origHeight = 3000;
 
@@ -81,6 +83,7 @@ const Game1 = () => {
     return (
         <>  
             <div className='header'>
+                <Popup popup={popup} setPopup={setPopup}/>
                 <h1>Game 1</h1>
                 <div className='smallImg'>
                     <img alt='dog1' src={CopperHound}/>
@@ -100,9 +103,11 @@ const Game1 = () => {
                         charList={charList}
                         boardSize={boardSize}
                         handleFound={handleFound}
+                        setPopup={setPopup}
                     />
                 )}
                 <GameEnd showModal={showModal} />
+                
             </div>
             
         </>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import './DropdownMenu.styles.scss'
 
 const DropdownMenu = (props) => {
@@ -29,12 +29,12 @@ const DropdownMenu = (props) => {
 
                 if(char === charAnswer) {
                     console.log('You found ' + charList[i].name + '!');
+                    props.setPopup(true);
                     props.handleFound(char);
                 } else return console.log('wrong');
             }
         }
     };
-
     return (
         <div>
             <div className='dropdown' style={menuLocation}>
