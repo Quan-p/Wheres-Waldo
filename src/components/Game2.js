@@ -58,18 +58,18 @@ const Game2 = () => {
     const handleFound = (name) => {
         setCharacterInfo((state) => {
             const characters = state.map((char) => {
-                if(char.name === name) {
+                if (char.name === name) {
                     char.found = true;
-                    return char;
+                if (characterInfo.every((char) => char.found === true)) {
+                    GameEnd(); 
+                }
+                return char;
                 } else {
-                    return char;
+                return char;
                 }
             });
             return characters;
-        });
-        if (characterInfo.every((char) => char.found === true)) {
-            GameEnd(); 
-        }
+        }); 
     }
 
     return (

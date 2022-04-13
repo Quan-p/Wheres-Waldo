@@ -1,5 +1,5 @@
 const GameEnd = () => {
-    alert('gg');
+    console.log('gg');
 }
 
 export default GameEnd;

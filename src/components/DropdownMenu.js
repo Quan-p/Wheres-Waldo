@@ -12,7 +12,7 @@ const DropdownMenu = (props) => {
     let menuLocation = {};
     menuLocation['--dropdown-left'] = xCursor + 10 + 'px';
     menuLocation['--dropdown-top'] = yCursor + 150 + 'px';
-    
+
     const checkLocation = (char) => {
         let charAnswer;
         for(let i = 0; i < charList.length; i++) {
@@ -20,19 +20,19 @@ const DropdownMenu = (props) => {
                 xPos > charList[i].coords.x * .95 &&
                 xPos < charList[i].coords.x * 1.05 &&
                 yPos > charList[i].coords.y * .95 &&
-                yPos < charList[i].coords.y * 1.05
+                yPos < charList[i].coords.y * 1.05 
             ) {
                 charAnswer = charList[i].name;
-                
                 setTimeout(() => {
-                    props.setShowDropdown(false);
-                    props.handleFound(charList[i].name);
-                }, 1500);
+                        props.setShowDropdown(false);
+                }, 1200);
+
+                if(char === charAnswer) {
+                    console.log('You found ' + charList[i].name + '!');
+                    props.handleFound(char);
+                } else return console.log('wrong');
             }
         }
-        if(char === charAnswer) {
-            console.log('right')
-        } else console.log('wrong')
     };
 
     return (

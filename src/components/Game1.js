@@ -6,7 +6,6 @@ import Snuffles from '../assets/characters/Snuffles.png';
 import { db, charList } from '../firebase';
 import DropdownMenu from './DropdownMenu';
 import './game.styles.scss';
-import { GamesOutlined } from '@mui/icons-material';
 import GameEnd from './GameEnd';
 
 const charInfo = [
@@ -62,21 +61,21 @@ const Game1 = () => {
     const handleFound = (name) => {
         setCharacterInfo((state) => {
             const characters = state.map((char) => {
-                if(char.name === name) {
+                if (char.name === name) {
                     char.found = true;
-                    return char;
+                if (characterInfo.every((char) => char.found === true)) {
+                    GameEnd(); 
+                }
+                return char;
                 } else {
-                    return char;
+                return char;
                 }
             });
             return characters;
-        });
-        if (characterInfo.every((char) => char.found === true)) {
-            GameEnd(); 
-        }
+        }); 
     }
 
-
+    
 
     return (
         <>  
