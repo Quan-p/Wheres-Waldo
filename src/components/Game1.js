@@ -33,7 +33,7 @@ const Game1 = () => {
     const [characterInfo, setCharacterInfo] = useState(charInfo);
     const [userCoords, setUserCoords] = useState([]);
     const [cursorCoords, setCursorCoords] = useState([]);
-
+    const [showModal, setShowModal] = useState(false);
     const origWidth = 3000;
     const origHeight = 3000;
 
@@ -64,7 +64,7 @@ const Game1 = () => {
                 if (char.name === name) {
                     char.found = true;
                 if (characterInfo.every((char) => char.found === true)) {
-                    GameEnd(); 
+                    setShowModal(true); 
                 }
                 return char;
                 } else {
@@ -101,7 +101,9 @@ const Game1 = () => {
                         handleFound={handleFound}
                     />
                 )}
+                <GameEnd showModal={showModal} />
             </div>
+            
         </>
     )
 }

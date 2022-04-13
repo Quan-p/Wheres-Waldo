@@ -11,7 +11,7 @@ const DropdownMenu = (props) => {
 
     let menuLocation = {};
     menuLocation['--dropdown-left'] = xCursor + 10 + 'px';
-    menuLocation['--dropdown-top'] = yCursor + 150 + 'px';
+    menuLocation['--dropdown-top'] = yCursor + 10 + 'px';
 
     const checkLocation = (char) => {
         let charAnswer;
