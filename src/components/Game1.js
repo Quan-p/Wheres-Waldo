@@ -34,6 +34,7 @@ const Game1 = () => {
     const [userCoords, setUserCoords] = useState([]);
     const [cursorCoords, setCursorCoords] = useState([]);
     const [showModal, setShowModal] = useState(false);
+    
     const origWidth = 3000;
     const origHeight = 3000;
 
