@@ -9,12 +9,11 @@ import Nav from './components/Nav';
 function App() {
   return (
     <BrowserRouter>
+    <Nav />
       <Routes>
-        <Route path='/' element={<Nav />} >
           <Route path='/' element={<Home />} />
           <Route path='/game1' element={<Game1 />} />
           <Route path='/game2' element={<Game2 />} />
-        </Route>
       </Routes>
     </BrowserRouter>
   );
