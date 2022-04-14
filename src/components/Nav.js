@@ -28,18 +28,17 @@ const Nav = () => {
                         <MenuIcon />
                     </button>
                 </div>
-                
-                    <div className='dropdown-content'>
-                        <div>
-                            <Link to="/">Home</Link>
-                        </div>
-                        <div>
-                            <Link to="/game1">Game 1</Link>
-                        </div>
-                        <div>
-                            <Link to="/game2">Game 2</Link>
-                        </div>
+                <div className='dropdown-content'>
+                    <div>
+                        <Link to="/">Home</Link>
                     </div>
+                    <div>
+                        <Link to="/game1">Game 1</Link>
+                    </div>
+                    <div>
+                        <Link to="/game2">Game 2</Link>
+                    </div>
+                </div>
             </nav>
             <Outlet />
         </div>
