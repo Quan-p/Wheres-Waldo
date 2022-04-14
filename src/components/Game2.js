@@ -5,8 +5,10 @@ import Meg_Griffin from '../assets/characters/Meg_Griffin.png';
 import Tom from '../assets/characters/Tom.png';
 import { db, charList } from '../firebase';
 import DropdownMenu from './DropdownMenu';
-import GameEnd from './GameEnd';
 import './game.styles.scss';
+import GameEnd from './GameEnd';
+import Popup from './Popup';
+
 const charInfo = [
     {
         name: 'Kenny',
@@ -33,6 +35,8 @@ const Game2 = () => {
     const [userCoords, setUserCoords] = useState([]);
     const [cursorCoords, setCursorCoords] = useState([]);
     const [showModal, setShowModal] = useState(false);
+    const [popup, setPopup] = useState(false);
+    const [foundMsg, setFoundMsg] = useState();
 
     const origWidth = 1988;
     const origHeight = 3708;
@@ -61,6 +65,7 @@ const Game2 = () => {
             const characters = state.map((char) => {
                 if (char.name === name) {
                     char.found = true;
+                    setFoundMsg(char.name);
                 if (characterInfo.every((char) => char.found === true)) {
                     setShowModal(true); 
                 }
@@ -76,6 +81,7 @@ const Game2 = () => {
     return (
         <>
             <div className='header'>
+                <Popup popup={popup} setPopup={setPopup} foundMsg={foundMsg} />
                 <h1>Game 2</h1>
                 <div className='smallImg'>
                     <img alt='dog1' src={KennyMcCormick}/>
@@ -96,6 +102,7 @@ const Game2 = () => {
                         charList={charList}
                         boardSize={boardSize}
                         handleFound={handleFound}
+                        setPopup={setPopup}
                     />
                 )}
                 <GameEnd showModal={showModal} />

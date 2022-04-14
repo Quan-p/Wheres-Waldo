@@ -36,14 +36,13 @@ const Game1 = () => {
     const [cursorCoords, setCursorCoords] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [popup, setPopup] = useState(false);
+    const [foundMsg, setFoundMsg] = useState();
 
     const origWidth = 3000;
     const origHeight = 3000;
 
     const handleClick = (e) => {
         boardSize = e.target.getBoundingClientRect();
-        
-        // absolute coordinates on image
         let x = e.clientX - boardSize.left;
         let y = e.clientY - boardSize.top;
         setCursorCoords([x, y]);
@@ -66,6 +65,7 @@ const Game1 = () => {
             const characters = state.map((char) => {
                 if (char.name === name) {
                     char.found = true;
+                    setFoundMsg(char.name);
                 if (characterInfo.every((char) => char.found === true)) {
                     setShowModal(true); 
                 }
@@ -78,12 +78,10 @@ const Game1 = () => {
         }); 
     }
 
-    
-
     return (
         <>  
             <div className='header'>
-                <Popup popup={popup} setPopup={setPopup}/>
+                <Popup popup={popup} setPopup={setPopup} foundMsg={foundMsg} />
                 <h1>Game 1</h1>
                 <div className='smallImg'>
                     <img alt='dog1' src={CopperHound}/>
@@ -91,6 +89,7 @@ const Game1 = () => {
                     <img alt='dog3' src={Snuffles}/>
                 </div>
             </div>
+            
             <div className='img-container'>
                 <img src={famous_dogs} alt='dogs' onClick={handleClick} />
                 {showDropdown && (

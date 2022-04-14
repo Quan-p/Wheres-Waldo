@@ -17,7 +17,7 @@ const Popup = (props) => {
             className={showAlert}
             onTransitionEnd={changeVis}
             >
-            <div>You found one!</div>
+            <div>You found {props.foundMsg}!</div>
             </div>
          </div>
     ) : (false);
