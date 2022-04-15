@@ -30,6 +30,7 @@ const charInfo = [
 let boardSize;
 
 const Game1 = () => {
+    
     const [showDropdown, setShowDropdown] = useState(false);
     const [characterInfo, setCharacterInfo] = useState(charInfo);
     const [userCoords, setUserCoords] = useState([]);
@@ -81,10 +82,16 @@ const Game1 = () => {
         }); 
     }
 
+    const handleStart = () => {
+        console.log('Game Started');
+        setGameOver(false);
+        setTime({ ...time, start: Date.now() })
+    }
+
     const handleWin = () => {
         console.log('You WIN!');
         setGameOver(true);
-        setTime({ ...time, })
+        setTime({ ...time, end: Date.now() });
     }
 
     return (
