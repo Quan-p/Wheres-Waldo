@@ -37,6 +37,8 @@ const Game1 = () => {
     const [showModal, setShowModal] = useState(false);
     const [popup, setPopup] = useState(false);
     const [foundMsg, setFoundMsg] = useState();
+    const [gameOver, setGameOver] = useState(true);
+    const [time, setTime] = useState({ start: 0, end: 0 })
 
     const origWidth = 3000;
     const origHeight = 3000;
@@ -68,6 +70,7 @@ const Game1 = () => {
                     setFoundMsg(char.name);
                 if (characterInfo.every((char) => char.found === true)) {
                     setShowModal(true); 
+                    handleWin();
                 }
                 return char;
                 } else {
@@ -76,6 +79,12 @@ const Game1 = () => {
             });
             return characters;
         }); 
+    }
+
+    const handleWin = () => {
+        console.log('You WIN!');
+        setGameOver(true);
+        setTime({ ...time, })
     }
 
     return (
@@ -89,7 +98,7 @@ const Game1 = () => {
                     <img alt='dog3' src={Snuffles}/>
                 </div>
             </div>
-            
+
             <div className='img-container'>
                 <img src={famous_dogs} alt='dogs' onClick={handleClick} />
                 {showDropdown && (
