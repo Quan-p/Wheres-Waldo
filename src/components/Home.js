@@ -2,12 +2,13 @@ import React, { useState, useCallback } from "react";
 import { useNavigate } from "react-router";
 const Home = () => {
     const [difficulty, setDifficulty] = useState();
+    const [playerName, setPlayerName] = useState();
     const navigate = useNavigate();
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(difficulty);
         navigate(difficulty);
+        console.log(playerName);
     };
 
     return (
@@ -34,7 +35,7 @@ const Home = () => {
             </div>
             <form className='playGame' onSubmit={handleSubmit}>
                 <h2>Enter Your Name</h2>
-                <input type='text' id='name' placeholder='Anonymous' required></input>
+                <input type='text' id='name' placeholder='Anonymous' onChange={(e) => setPlayerName(e.target.value)} required></input>
                 <p>Difficulty:</p>
                 <input type='radio' name='difficulty' value='/Game1' onChange={(e) => setDifficulty('/Game1')} />Easy
                 <input type='radio' name='difficulty' value='/Game2' onChange={(e) => setDifficulty('/Game2')} />Hard
