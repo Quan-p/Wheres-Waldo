@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import famous_dogs from '../assets/famous_dogs.jpg';
 import CopperHound from '../assets/characters/CopperHound.png';
 import Max from '../assets/characters/Max.png';
@@ -30,7 +30,7 @@ const charInfo = [
 let boardSize;
 
 const Game1 = () => {
-    
+    const [gameBackground, setGameBackground] = useState();
     const [showDropdown, setShowDropdown] = useState(false);
     const [characterInfo, setCharacterInfo] = useState(charInfo);
     const [userCoords, setUserCoords] = useState([]);
@@ -85,14 +85,20 @@ const Game1 = () => {
     const handleStart = () => {
         console.log('Game Started');
         setGameOver(false);
+        setGameBackground(famous_dogs);
         setTime({ ...time, start: Date.now() })
-    }
+        };
 
     const handleWin = () => {
         console.log('You WIN!');
         setGameOver(true);
         setTime({ ...time, end: Date.now() });
     }
+
+    useEffect(() => {
+        handleStart();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <>  
@@ -107,7 +113,7 @@ const Game1 = () => {
             </div>
 
             <div className='img-container'>
-                <img src={famous_dogs} alt='dogs' onClick={handleClick} />
+                <img src={gameBackground} alt='dogs' onClick={handleClick} />
                 {showDropdown && (
                     <DropdownMenu 
                         charInfo={charInfo}
