@@ -39,7 +39,8 @@ const Game1 = () => {
     const [popup, setPopup] = useState(false);
     const [foundMsg, setFoundMsg] = useState();
     const [gameOver, setGameOver] = useState(true);
-    const [time, setTime] = useState({ start: 0, end: 0 });
+    const [time, setTime] = useState(0);
+    const [timerOn, setTimerOn] = useState(false);
 
     const origWidth = 3000;
     const origHeight = 3000;
@@ -86,17 +87,19 @@ const Game1 = () => {
         console.log('Game Started');
         setGameOver(false);
         setGameBackground(famous_dogs);
-        setTime({ ...time, start: Date.now() })
         };
 
     const handleWin = () => {
         console.log('You WIN!');
         setGameOver(true);
-        setTime({ ...time, end: Date.now() });
+        setTimerOn(false);
     }
 
     useEffect(() => {
         handleStart();
+        setTime(0);
+        setTimerOn(true);
+        
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

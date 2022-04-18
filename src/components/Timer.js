@@ -1,30 +1,28 @@
 import React, { useState, useEffect } from 'react';
 
-function Timer(gameOver) {
-    const [timer, setTimer] = useState(0);
+function Timer(props) {
+    let sec = ("0" + (Math.floor(props.time / 1000) % 60)).slice(-2);
+    let min = ("0" + (Math.floor(props.time / 60000) % 60)).slice(-2);
 
-    useEffect(
-        () => {
-            let interval;
-            if (!gameOver) {
-                // start interval/timer
-                interval = setInterval(() => {
-                setTimer((timer) => timer + 1);
-                }, 1000);
-            } else if (gameOver) {
-                // stops/resets timer
-                clearInterval(interval);
-                setTimer(0);
+    useEffect(() => {
+        let interval = null;
+
+        if (props.timerOn) {
+            interval = setInterval(() => {
+              props.setTime((prevTime) => prevTime + 1000);
+            }, 1000);
+            } else if (!props.timerOn) {
+            clearInterval(interval);
             }
+            return () => clearInterval(interval);
+    }, [props, props.timerOn]);
         
-            // when component unmounts stops timer / clearInterval
-            return () => {
-                clearInterval(interval);
-            };
-            },
-            [gameOver]
-        );
-  return <div>{timer}</div>; 
+    
+    return (
+        <div className='timer-container'>
+            <h1>{min}</h1>
+        </div>
+    );  
 }
 
 export default Timer;
