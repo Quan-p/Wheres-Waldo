@@ -20,7 +20,7 @@ function Timer(props) {
     
     return (
         <div className='timer-container'>
-            <h1>{min}</h1>
+            <h1>{min}:{sec}</h1>
         </div>
     );  
 }

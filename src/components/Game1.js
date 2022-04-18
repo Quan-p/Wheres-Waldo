@@ -8,6 +8,7 @@ import DropdownMenu from './DropdownMenu';
 import './game.styles.scss';
 import GameEnd from './GameEnd';
 import Popup from './Popup';
+import Timer from './Timer';
 
 const charInfo = [
     {
@@ -29,7 +30,7 @@ const charInfo = [
 
 let boardSize;
 
-const Game1 = () => {
+const Game1 = (props) => {
     const [gameBackground, setGameBackground] = useState();
     const [showDropdown, setShowDropdown] = useState(false);
     const [characterInfo, setCharacterInfo] = useState(charInfo);
@@ -105,6 +106,11 @@ const Game1 = () => {
 
     return (
         <>  
+            <Timer 
+                timerOn={timerOn}
+                time={time}
+                setTime={setTime}
+            />
             <div className='header'>
                 <Popup popup={popup} setPopup={setPopup} foundMsg={foundMsg} />
                 <h1>Game 1</h1>
@@ -131,7 +137,6 @@ const Game1 = () => {
                     />
                 )}
                 <GameEnd showModal={showModal} />
-                
             </div>
             
         </>
