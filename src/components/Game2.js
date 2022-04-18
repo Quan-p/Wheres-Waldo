@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AD from '../assets/AD2.222.jpg';
 import KennyMcCormick from '../assets/characters/KennyMcCormick.png';
 import Meg_Griffin from '../assets/characters/Meg_Griffin.png';
@@ -30,6 +30,7 @@ const charInfo = [
 let boardSize;
 
 const Game2 = () => {
+    const [gameBackground, setGameBackground] = useState();
     const [showDropdown, setShowDropdown] = useState(false);
     const [characterInfo, setCharacterInfo] = useState(charInfo);
     const [userCoords, setUserCoords] = useState([]);
@@ -37,6 +38,8 @@ const Game2 = () => {
     const [showModal, setShowModal] = useState(false);
     const [popup, setPopup] = useState(false);
     const [foundMsg, setFoundMsg] = useState();
+    const [gameOver, setGameOver] = useState(true);
+    const [time, setTime] = useState({ start: 0, end: 0 });
 
     const origWidth = 1988;
     const origHeight = 3708;
@@ -77,6 +80,24 @@ const Game2 = () => {
             return characters;
         }); 
     }
+
+    const handleStart = () => {
+        console.log('Game Started');
+        setGameOver(false);
+        setGameBackground(AD);
+        setTime({ ...time, start: Date.now() })
+        };
+
+    const handleWin = () => {
+        console.log('You WIN!');
+        setGameOver(true);
+        setTime({ ...time, end: Date.now() });
+    }
+
+    useEffect(() => {
+        handleStart();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <>
