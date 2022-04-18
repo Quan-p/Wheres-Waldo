@@ -12,6 +12,8 @@
 .nav-container {
   width: 100%;
   background-color: #7395AE;
+  display: flex;
+  justify-content: space-between;
   z-index: 999;
 }
 
@@ -19,7 +21,6 @@
 .dropdown-nav {
     position: relative;
     display: inline-block;
-    
 }
   
 /* Dropdown Content (Hidden by Default) */
@@ -55,3 +56,9 @@
   
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown-nav:hover .dropbtn {background-color: #adadad4d;}
+
+.timer-container {
+  h1 {
+    margin-right: 10px;
+  }
+}

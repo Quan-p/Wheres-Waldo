@@ -29,7 +29,6 @@ const Nav = () => {
                         <MenuIcon />
                     </button>
                 </div>
-                <Timer />
                 <div className='dropdown-content'>
                     <div>
                         <Link to="/">Home</Link>
@@ -42,6 +41,7 @@ const Nav = () => {
                     </div>
                 </div>
             </nav>
+            <Timer />
             <Outlet />
         </div>
     )
