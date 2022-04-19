@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Highscores from './Highscores';
 import './GameEnd.styles.scss';
 
 const GameEnd = (props) => {
@@ -19,7 +20,7 @@ const GameEnd = (props) => {
             <div className='main-modal'>
                 <h2>Modal Window</h2>
                 <div className="content">
-                    Content
+                    <Highscores />
                 </div>
             </div>
             
