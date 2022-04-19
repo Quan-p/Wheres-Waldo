@@ -3,7 +3,7 @@ import famous_dogs from '../assets/famous_dogs.jpg';
 import CopperHound from '../assets/characters/CopperHound.png';
 import Max from '../assets/characters/Max.png';
 import Snuffles from '../assets/characters/Snuffles.png';
-import { db, charList } from '../firebase';
+import { db, charList, highScores } from '../firebase';
 import DropdownMenu from './DropdownMenu';
 import './game.styles.scss';
 import GameEnd from './GameEnd';
@@ -94,7 +94,20 @@ const Game1 = (props) => {
         console.log('You WIN!');
         setGameOver(true);
         setTimerOn(false);
+
+
     }
+
+    // async function getHighScores(db) {
+    //     const locationSnapshot = await getDocs(collection(db, 'charLocation'));
+    //     locationSnapshot.forEach((doc) => {
+    //       let char = {};
+    //       char.name = doc.id;
+    //       char.coords = doc.data();
+    //       charList.push(char);
+    //     })
+    //     return charList;
+    //   }
 
     useEffect(() => {
         handleStart();
