@@ -12,12 +12,15 @@ const GameEnd = (props) => {
         <div className={visibility} id="modal">
             <h2>Modal Window</h2>
             <div className="content">content</div>
-            <div className="actions">
-                <button className='closeBtn' onClick={changeVis}>
-                    close
-                    
-                </button>
+            <div className='close-container' onClick={changeVis}>
+                <div className="leftright"></div>
+                <div className="rightleft"></div>
+                <label className="close" >close</label>
             </div>
+            {/* <button className='closeBtn' >
+                close
+            </button> */}
+            
       </div>
     ) : (false);
 }
