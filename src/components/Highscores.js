@@ -2,7 +2,7 @@ import React from "react";
 import { db, highScores } from '../firebase';
 
 const Highscores = () => {
-    highScores.sort((a, b) => a.seconds - b.seconds);
+    highScores.sort((a, b) => (a.Time - b.Time))
     let topTen = highScores.slice(0, 10);
     console.log(topTen);
     return (
