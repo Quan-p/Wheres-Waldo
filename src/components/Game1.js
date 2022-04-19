@@ -111,8 +111,9 @@ const Game1 = (props) => {
                 time={time}
                 setTime={setTime}
             />
+            <Popup popup={popup} setPopup={setPopup} foundMsg={foundMsg} />
             <div className='header'>
-                <Popup popup={popup} setPopup={setPopup} foundMsg={foundMsg} />
+                
                 <h1>Game 1</h1>
                 <div className='smallImg'>
                     <img alt='dog1' src={CopperHound}/>

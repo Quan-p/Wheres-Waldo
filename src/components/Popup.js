@@ -7,12 +7,10 @@ const Popup = (props) => {
     const changeVis = () => {
         setShowAlert('alert-hidden');
     };
-    setTimeout(() => {
-        props.setPopup(false);
-    }, 4000);
+    
 
     return props.popup ? (
-        <div>
+        <div className='message-container'>
             <div
             className={showAlert}
             onTransitionEnd={changeVis}
