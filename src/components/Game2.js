@@ -8,6 +8,7 @@ import DropdownMenu from './DropdownMenu';
 import './game.styles.scss';
 import GameEnd from './GameEnd';
 import Popup from './Popup';
+import Timer from './Timer';
 
 const charInfo = [
     {
@@ -39,7 +40,8 @@ const Game2 = () => {
     const [popup, setPopup] = useState(false);
     const [foundMsg, setFoundMsg] = useState();
     const [gameOver, setGameOver] = useState(true);
-    const [time, setTime] = useState({ start: 0, end: 0 });
+    const [time, setTime] = useState(0);
+    const [timerOn, setTimerOn] = useState(false);
 
     const origWidth = 1988;
     const origHeight = 3708;
@@ -70,7 +72,8 @@ const Game2 = () => {
                     char.found = true;
                     setFoundMsg(char.name);
                 if (characterInfo.every((char) => char.found === true)) {
-                    setShowModal(true); 
+                    setShowModal(true);
+                    handleWin(); 
                 }
                 return char;
                 } else {
@@ -85,24 +88,31 @@ const Game2 = () => {
         console.log('Game Started');
         setGameOver(false);
         setGameBackground(AD);
-        setTime({ ...time, start: Date.now() })
         };
 
     const handleWin = () => {
         console.log('You WIN!');
         setGameOver(true);
-        setTime({ ...time, end: Date.now() });
+        setTimerOn(false)
     }
 
     useEffect(() => {
         handleStart();
+        setTime(0);
+        setTimerOn(true)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
         <>
+            <Timer 
+                timerOn={timerOn}
+                time={time}
+                setTime={setTime}
+            />
+            <Popup popup={popup} setPopup={setPopup} foundMsg={foundMsg} />
             <div className='header'>
-                <Popup popup={popup} setPopup={setPopup} foundMsg={foundMsg} />
+                
                 <h1>Game 2</h1>
                 <div className='smallImg'>
                     <img alt='dog1' src={KennyMcCormick}/>
