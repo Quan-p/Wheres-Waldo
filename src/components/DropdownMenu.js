@@ -30,6 +30,9 @@ const DropdownMenu = (props) => {
                 if(char === charAnswer) {
                     console.log('You found ' + charList[i].name + '!');
                     props.setPopup(true);
+                    setTimeout(() => {
+                        props.setPopup(false);
+                    }, 3000)
                     props.handleFound(char);
                 } else return console.log('wrong');
             }
