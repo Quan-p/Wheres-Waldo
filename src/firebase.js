@@ -29,6 +29,18 @@ async function getCharLocation(db) {
   })
   return charList;
 }
-getCharLocation(db);
 
-export { db, charList };
+let highScores=[];
+async function getHighScores(db) {
+  const highScoreSnapshot = await getDocs(collection(db, 'highscores'));
+  highScoreSnapshot.forEach((doc) => {
+    let user = doc.data();
+    highScores.push(user);
+  })
+  return highScores;
+}
+
+getCharLocation(db);
+getHighScores(db);
+
+export { db, charList, highScores };
