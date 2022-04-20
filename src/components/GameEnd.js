@@ -10,9 +10,12 @@ const GameEnd = (props) => {
         setVisibility('modal-hidden');
     };
 
+    
+
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(playerName);
+        changeVis();
     };
 
     return props.showModal ? (
