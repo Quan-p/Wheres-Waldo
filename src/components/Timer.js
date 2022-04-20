@@ -6,7 +6,6 @@ function Timer(props) {
 
     useEffect(() => {
         let interval = null;
-
         if (props.timerOn) {
             interval = setInterval(() => {
               props.setTime((prevTime) => prevTime + 1000);
@@ -17,7 +16,6 @@ function Timer(props) {
             return () => clearInterval(interval);
     }, [props, props.timerOn]);
         
-    
     return (
         <div className='timer-container'>
             <h1>{min}:{sec}</h1>
