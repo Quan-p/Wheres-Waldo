@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore/lite';
 // Follow this pattern to import other Firebase services
 // import { } from 'firebase/<service>';
 
@@ -40,7 +40,15 @@ async function getHighScores(db) {
   return highScores;
 }
 
+const addNewScore = (playerName, min, sec) => {
+  const newScore = addDoc(collection(db, 'highscores') , {
+    Name: playerName,
+    min: min,
+    sec: sec
+  })
+}
+
 getCharLocation(db);
 getHighScores(db);
 
-export { db, charList, highScores };
+export { db, charList, highScores, addNewScore };
