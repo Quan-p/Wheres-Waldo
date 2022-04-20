@@ -15,7 +15,7 @@ const Highscores = () => {
     return (
         <div>
             {topTen.map((player) => (
-                <div key={player.Name}>Name: {player.Name} Time: {player.min}:{player.sec}</div>
+                <div key={player.Name}>Name: {player.Name} Time: {player.min} Minutes {player.sec} Seconds</div>
             ))}
         </div>
     )

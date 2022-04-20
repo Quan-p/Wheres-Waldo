@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Highscores from './Highscores';
+import { addNewScore } from "../firebase";
 import './GameEnd.styles.scss';
 
 const GameEnd = (props) => {
@@ -10,12 +11,15 @@ const GameEnd = (props) => {
         setVisibility('modal-hidden');
     };
 
+    let totalTime = 9000 / 1000;
+    let minutes = Math.floor(totalTime / 60);
+    let seconds = totalTime - minutes * 60;
     
-
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(playerName);
         changeVis();
+        addNewScore(playerName, minutes, seconds);
     };
 
     return props.showModal ? (
@@ -34,7 +38,9 @@ const GameEnd = (props) => {
                     </div>
                     <div>
                         <form className='score-submit' onSubmit={handleSubmit}>
-                            <p>Your Time: </p>
+                            <p>
+                                Your Time: {minutes} Minutes { seconds} Seconds
+                            </p>
                             <h2>Enter Name</h2>
                             <input type='text' id='name' placeholder='Anonymous' onChange={(e) => setPlayerName(e.target.value)} required></input>
                             <button type='submit'>SUBMIT</button>
