@@ -2,7 +2,7 @@
     position: absolute;
     margin: auto;
     width: 300px;
-    height: 200px;
+    height: fit-content;
     background: #ADADAD;
     border: none;
     border-radius: 10px;
@@ -33,13 +33,21 @@ h2 {
     justify-content: center;
     width: 100%;
 }
-.content {
+.highscores {
     border: 1px black solid;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     width: 100%;
+}
+
+.score-submit {
+    height: 100%;
+    margin-bottom: 15px;
+    h2 {
+        margin-bottom: 5px;
+    }
 }
 
 // COLORS for close container
