@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from 'uuid';
 import { highScores } from '../firebase';
 
 const Highscores = () => {
@@ -15,7 +16,7 @@ const Highscores = () => {
     return (
         <div>
             {topTen.map((player) => (
-                <div key={player.Name}>Name: {player.Name} Time: {player.min} Minutes {player.sec} Seconds</div>
+                <div key={uuidv4()}>Name: {player.Name} Time: {player.min} Minutes {player.sec} Seconds</div>
             ))}
         </div>
     )
