@@ -5,31 +5,33 @@ import './GameEnd.styles.scss';
 
 const GameEnd = (props) => {
     const [visibility, setVisibility] = useState('modal-show');
-    const [playerName, setPlayerName] = useState();
+    const [playerName, setPlayerName] = useState('');
 
     const changeVis = () => {
         setVisibility('modal-hidden');
     };
 
-    let totalTime = props.time / 1000;
-    let minutes = Math.floor(totalTime / 60);
-    let seconds = totalTime - minutes * 60;
+    let totalSec = props.time / 1000;
 
-    highScores.sort((a, b) => {
-        let amin = a.min;
-        let bmin = b.min;
-        let asec = a.sec;
-        let bsec = b.sec;
-        let atemp = amin+":"+asec;
-        let btemp = bmin+":"+bsec;
-        return atemp.localeCompare(btemp);
-    });
+    highScores.sort((a, b) => a.sec - b.sec);
     let slowestTime = highScores[highScores.length - 1];
 
     const handleSubmit = (e) => {
         e.preventDefault();
         changeVis();
-        addNewScore(playerName, minutes, seconds);
+        addNewScore(playerName, totalSec);
+        props.setTime(0);
+        props.setTimerOn(true);
+        if (playerName !== '') {
+            setPlayerName('')
+        }
+        props.setCharacterInfo((state) => {
+            const characters = state.map((char) => {
+                char.found = false;
+                return char;
+            });
+            return characters;
+        })
     };
 
     return props.showModal ? (
@@ -47,10 +49,10 @@ const GameEnd = (props) => {
                         <Highscores /> 
                     </div>
                     <div>
-                    {(minutes <= slowestTime.min && seconds < slowestTime.sec) ? 
+                    {(totalSec < slowestTime.sec) ? 
                         <form className='score-submit' onSubmit={handleSubmit}>
                             <p>
-                                Your Time: {minutes} Minutes { seconds} Seconds
+                                Your Time: {Math.floor(totalSec % 3600 / 60).toString().padStart(2,'0')}:{Math.floor(totalSec % 60).toString().padStart(2,'0')}
                             </p>
                             <h2>Enter Name</h2>
                             <input type='text' id='name' placeholder='Anonymous' onChange={(e) => setPlayerName(e.target.value)} required></input>
@@ -60,7 +62,7 @@ const GameEnd = (props) => {
                             Sorry, your time wasn't a high score.
                             <br/>
                             <br/>
-                            Your Time: {minutes} Minutes { seconds} Seconds
+                            Your Time: {Math.floor(totalSec % 3600 / 60).toString().padStart(2,'0')}:{Math.floor(totalSec % 60).toString().padStart(2,'0')}
                             <button className='restart-btn'>Play Again</button>
                         </p>}
                     </div>
