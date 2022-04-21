@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Highscores from './Highscores';
-import { addNewScore } from "../firebase";
+import { addNewScore, highScores } from "../firebase";
 import './GameEnd.styles.scss';
 
 const GameEnd = (props) => {
@@ -14,7 +14,18 @@ const GameEnd = (props) => {
     let totalTime = props.time / 1000;
     let minutes = Math.floor(totalTime / 60);
     let seconds = totalTime - minutes * 60;
-    
+
+    highScores.sort((a, b) => {
+        let amin = a.min;
+        let bmin = b.min;
+        let asec = a.sec;
+        let bsec = b.sec;
+        let atemp = amin+":"+asec;
+        let btemp = bmin+":"+bsec;
+        return atemp.localeCompare(btemp);
+    });
+    let slowestTime = highScores[highScores.length - 1];
+
     const handleSubmit = (e) => {
         e.preventDefault();
         changeVis();
@@ -36,6 +47,7 @@ const GameEnd = (props) => {
                         <Highscores /> 
                     </div>
                     <div>
+                    {(minutes <= slowestTime.min && seconds < slowestTime.sec) ? 
                         <form className='score-submit' onSubmit={handleSubmit}>
                             <p>
                                 Your Time: {minutes} Minutes { seconds} Seconds
@@ -44,6 +56,13 @@ const GameEnd = (props) => {
                             <input type='text' id='name' placeholder='Anonymous' onChange={(e) => setPlayerName(e.target.value)} required></input>
                             <button type='submit'>SUBMIT</button>
                         </form>
+                    :   <p>
+                            Sorry, your time wasn't a high score.
+                            <br/>
+                            <br/>
+                            Your Time: {minutes} Minutes { seconds} Seconds
+                            <button className='restart-btn'>Play Again</button>
+                        </p>}
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { db, highScores } from '../firebase';
+import { highScores } from '../firebase';
 
 const Highscores = () => {
     highScores.sort((a, b) => {
