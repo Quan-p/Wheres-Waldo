@@ -40,11 +40,10 @@ async function getHighScores(db) {
   return highScores;
 }
 
-const addNewScore = (playerName, min, sec) => {
+const addNewScore = (playerName, totalSec) => {
   const newScore = addDoc(collection(db, 'highscores') , {
     Name: playerName,
-    min: min,
-    sec: sec
+    sec: totalSec,
   })
 }
 
