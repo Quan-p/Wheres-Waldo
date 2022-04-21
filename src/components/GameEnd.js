@@ -11,13 +11,12 @@ const GameEnd = (props) => {
         setVisibility('modal-hidden');
     };
 
-    let totalTime = 9000 / 1000;
+    let totalTime = props.time / 1000;
     let minutes = Math.floor(totalTime / 60);
     let seconds = totalTime - minutes * 60;
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(playerName);
         changeVis();
         addNewScore(playerName, minutes, seconds);
     };
