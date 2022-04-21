@@ -137,7 +137,12 @@ const Game1 = (props) => {
                         setPopup={setPopup}
                     />
                 )}
-                <GameEnd showModal={showModal} time={time}/>
+                <GameEnd 
+                showModal={showModal} 
+                time={time} setTime={setTime} 
+                setTimerOn={setTimerOn}
+                setCharacterInfo={setCharacterInfo}
+                />
             </div>
             
         </>
