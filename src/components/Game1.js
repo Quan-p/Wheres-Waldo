@@ -96,11 +96,22 @@ const Game1 = (props) => {
         setTimerOn(false);
     }
 
+    const handleReset = () => {
+        setCharacterInfo((state) => {
+            const characters = state.map((char) => {
+                if (char.found === true) {
+                    char.found = false;
+                } return char;
+            });
+            return characters;
+        });
+    }
+
     useEffect(() => {
         handleStart();
         setTime(0);
         setTimerOn(true);
-        
+        handleReset();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
