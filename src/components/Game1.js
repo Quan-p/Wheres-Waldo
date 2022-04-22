@@ -149,10 +149,11 @@ const Game1 = (props) => {
                     />
                 )}
                 <GameEnd 
-                showModal={showModal} 
-                time={time} setTime={setTime} 
-                setTimerOn={setTimerOn}
-                setCharacterInfo={setCharacterInfo}
+                    showModal={showModal} 
+                    time={time} 
+                    setTime={setTime} 
+                    setTimerOn={setTimerOn}
+                    setCharacterInfo={setCharacterInfo}
                 />
             </div>
             

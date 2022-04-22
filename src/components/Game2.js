@@ -148,7 +148,13 @@ const Game2 = () => {
                         setPopup={setPopup}
                     />
                 )}
-                <GameEnd showModal={showModal} />
+                <GameEnd 
+                    showModal={showModal} 
+                    time={time} 
+                    setTime={setTime} 
+                    setTimerOn={setTimerOn}
+                    setCharacterInfo={setCharacterInfo}
+                />
             </div>
             
         </>
