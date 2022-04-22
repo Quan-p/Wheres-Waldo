@@ -40,6 +40,16 @@ async function getHighScores(db) {
   return highScores;
 }
 
+let highScores2=[];
+async function getHighScores2(db) {
+  const highScoreSnapshot = await getDocs(collection(db, 'highscores2'));
+  highScoreSnapshot.forEach((doc) => {
+    let user = doc.data();
+    highScores2.push(user);
+  })
+  return highScores2;
+}
+
 const addNewScore = (playerName, totalSec) => {
   const newScore = addDoc(collection(db, 'highscores') , {
     Name: playerName,
@@ -47,7 +57,14 @@ const addNewScore = (playerName, totalSec) => {
   })
 }
 
+const addNewScore2 = (playerName, totalSec) => {
+  const newScore = addDoc(collection(db, 'highscores2') , {
+    Name: playerName,
+    sec: totalSec,
+  })
+}
+
 getCharLocation(db);
 getHighScores(db);
-
-export { db, charList, highScores, addNewScore };
+getHighScores2(db);
+export { db, charList, highScores, highScores2, addNewScore, addNewScore2 };
