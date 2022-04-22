@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Highscores from './Highscores';
-import { addNewScore, highScores } from "../firebase";
+import { useLocation } from 'react-router';
+import { addNewScore, addNewScore2, highScores } from "../firebase";
 import './GameEnd.styles.scss';
 
 const GameEnd = (props) => {
@@ -16,10 +17,18 @@ const GameEnd = (props) => {
     highScores.sort((a, b) => a.sec - b.sec);
     let slowestTime = highScores[highScores.length - 1];
 
+    let location = useLocation();
+
     const handleSubmit = (e) => {
+        
         e.preventDefault();
         changeVis();
-        addNewScore(playerName, totalSec);
+        if (location.pathname === '/game1') {
+            addNewScore(playerName, totalSec);
+        } else if (location.pathname === '/game2') {
+            addNewScore2(playerName, totalSec);
+        }
+        
         props.setTime(0);
         props.setTimerOn(true);
         if (playerName !== '') {
