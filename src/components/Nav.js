@@ -43,7 +43,7 @@ const Nav = (props) => {
                     </div>
                 </div>
             </nav>
-            <h1 className='game-title'>Where's Waldo</h1>
+            <h1 className='game-title'>Hide and Seek</h1>
             <Outlet />
         </div>
     )
