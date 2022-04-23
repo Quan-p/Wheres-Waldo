@@ -16,17 +16,16 @@
     position: relative;
     align-items: center;
     justify-content: center;
-    border-top: #ADADAD 4px solid;
-    border-bottom: #ADADAD 4px solid;
+    border-top: #76323F 4px solid;
+    border-bottom: #76323F 4px solid;
     height: 80px;
+    color: #565656;
 
     h1 {
         flex: 0 1 auto;
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        padding-top: 12px;
-        margin-top: 0px;
     }
 
     .smallImg {
@@ -49,4 +48,5 @@
 .timer-container {
     display: inline-block;
     position: absolute;
+    color: #565656;
 }
