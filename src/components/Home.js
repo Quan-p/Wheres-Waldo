@@ -1,5 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { useNavigate } from "react-router";
+import './Home.styles.scss'
+
 const Home = () => {
     const [difficulty, setDifficulty] = useState();
     const navigate = useNavigate();
@@ -10,7 +12,7 @@ const Home = () => {
     };
 
     return (
-        <>
+        <div className='home'>
             <h1>HomePage</h1>
             <div className='instructions'>
                 <div className='goal'>
@@ -31,15 +33,15 @@ const Home = () => {
                     </ol>
                 </div>
             </div>
-            <form className='playGame' onSubmit={handleSubmit}>
-                <p>Difficulty:</p>
-                <input type='radio' name='difficulty' value='/Game1' onChange={(e) => setDifficulty('/Game1')} />Easy
-                <input type='radio' name='difficulty' value='/Game2' onChange={(e) => setDifficulty('/Game2')} />Hard
+            <form className='diff-form' onSubmit={handleSubmit}>
+                <h2>Difficulty:</h2>
+                <input type='radio' name='difficulty' value='/Game1' onChange={(e) => setDifficulty('/Game1')} required/>Easy
+                <input type='radio' name='difficulty' value='/Game2' onChange={(e) => setDifficulty('/Game2')} required/>Hard
                 <br/>
                 <br/>
                 <button type='submit'>PLAY</button>
             </form>
-        </>
+        </div>
     )
 }
 
