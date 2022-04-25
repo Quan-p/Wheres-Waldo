@@ -163,9 +163,9 @@ const Game1 = (props) => {
                     </div>
                 </div>
                 <div className='link-container' >
-                    <p className='artist-link' href='https://www.instagram.com/mxcq/'>
+                    <a className='artist-link' href='https://www.instagram.com/mxcq/'>
                         See his works here!
-                    </p>
+                    </a>
                 </div>
                 
             </footer>

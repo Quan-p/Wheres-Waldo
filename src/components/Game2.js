@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import game2 from '../assets/AD2.222.jpg';
+import game2 from '../assets/game2.jpg';
 import KennyMcCormick from '../assets/characters/KennyMcCormick.png';
 import Meg_Griffin from '../assets/characters/Meg_Griffin.png';
 import Tom from '../assets/characters/Tom.png';
