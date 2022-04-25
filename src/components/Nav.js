@@ -31,7 +31,7 @@ const Nav = (props) => {
                 </div>
                 <div className='dropdown-content'>
                     <div>
-                        <Link to="/">Home</Link>
+                        <Link to="/Wheres-Waldo/">Home</Link>
                     </div>
                     <div>
                         <Link to="/game1">Game 1</Link>
