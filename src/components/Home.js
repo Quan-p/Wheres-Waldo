@@ -39,7 +39,7 @@ const Home = () => {
                 <input type='radio' name='difficulty' value='/Game2' onChange={(e) => setDifficulty('/Game2')} required/>Hard
                 <br/>
                 <br/>
-                <button type='submit'>PLAY</button>
+                <button className='btn draw-border' type='submit'>PLAY</button>
             </form>
         </div>
     )
