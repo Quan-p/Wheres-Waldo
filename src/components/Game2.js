@@ -156,7 +156,23 @@ const Game2 = () => {
                     setCharacterInfo={setCharacterInfo}
                 />
             </div>
-            
+            <footer>
+                <div className='credits'>
+                   <div className='art'>
+                        A.D. 2.222
+                    </div>
+                    <div className='artist'>
+                        Artist: Egor Klyuchnyk
+                    </div>
+                    
+                </div>
+                <div className='link-container'>
+                    <a className='artist-link' href='https://www.artstation.com/chekavo'>
+                        See his works here!
+                    </a>
+                </div>
+                
+            </footer>
         </>
     )
 }

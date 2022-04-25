@@ -156,7 +156,22 @@ const Game1 = (props) => {
                     setCharacterInfo={setCharacterInfo}
                 />
             </div>
-            
+            <footer>
+                <div className='credits'>
+                   <div className='art'>
+                        Famous Dogs
+                    </div>
+                    <div className='artist'>
+                        Artist: Mxcq
+                    </div>
+                </div>
+                <div className='link-container' >
+                    <p className='artist-link' href='https://www.instagram.com/mxcq/'>
+                        See his works here!
+                    </p>
+                </div>
+                
+            </footer>
         </>
     )
 }
