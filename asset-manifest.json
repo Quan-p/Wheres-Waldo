@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Wheres-Waldo/static/css/main.e9d71972.css",
-    "main.js": "/Wheres-Waldo/static/js/main.2e73f01f.js",
+    "main.css": "/Wheres-Waldo/static/css/main.c3928069.css",
+    "main.js": "/Wheres-Waldo/static/js/main.cd8b9975.js",
     "static/media/AD2.222.jpg": "/Wheres-Waldo/static/media/AD2.222.2561e556ffcd97d2871c.jpg",
     "static/media/famous_dogs.jpg": "/Wheres-Waldo/static/media/famous_dogs.164ccce3912183918939.jpg",
     "static/media/Max.png": "/Wheres-Waldo/static/media/Max.0951958feb8dde78e1e9.png",
@@ -10,12 +10,12 @@
     "static/media/CopperHound.png": "/Wheres-Waldo/static/media/CopperHound.deea15cea146e847df81.png",
     "static/media/Meg_Griffin.png": "/Wheres-Waldo/static/media/Meg_Griffin.0d07ece2bdb507f08660.png",
     "index.html": "/Wheres-Waldo/index.html",
-    "static/media/custom-cursor.svg": "/Wheres-Waldo/static/media/custom-cursor.a1125529a9825ee93790.svg",
-    "main.e9d71972.css.map": "/Wheres-Waldo/static/css/main.e9d71972.css.map",
-    "main.2e73f01f.js.map": "/Wheres-Waldo/static/js/main.2e73f01f.js.map"
+    "static/media/custom-cursor.svg": "/Wheres-Waldo/static/media/custom-cursor.090c8d9852d4834d55da.svg",
+    "main.c3928069.css.map": "/Wheres-Waldo/static/css/main.c3928069.css.map",
+    "main.cd8b9975.js.map": "/Wheres-Waldo/static/js/main.cd8b9975.js.map"
   },
   "entrypoints": [
-    "static/css/main.e9d71972.css",
-    "static/js/main.2e73f01f.js"
+    "static/css/main.c3928069.css",
+    "static/js/main.cd8b9975.js"
   ]
 }
