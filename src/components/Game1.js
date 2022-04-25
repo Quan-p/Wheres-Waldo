@@ -3,7 +3,7 @@ import famous_dogs from '../assets/famous_dogs.jpg';
 import CopperHound from '../assets/characters/CopperHound.png';
 import Max from '../assets/characters/Max.png';
 import Snuffles from '../assets/characters/Snuffles.png';
-import { db, charList } from '../firebase';
+import { charList } from '../firebase';
 import DropdownMenu from './DropdownMenu';
 import './game.styles.scss';
 import GameEnd from './GameEnd';
@@ -39,7 +39,6 @@ const Game1 = (props) => {
     const [showModal, setShowModal] = useState(false);
     const [popup, setPopup] = useState(false);
     const [foundMsg, setFoundMsg] = useState();
-    const [gameOver, setGameOver] = useState(true);
     const [time, setTime] = useState(0);
     const [timerOn, setTimerOn] = useState(false);
 
@@ -86,13 +85,11 @@ const Game1 = (props) => {
 
     const handleStart = () => {
         console.log('Game Started');
-        setGameOver(false);
         setGameBackground(famous_dogs);
         };
 
     const handleWin = () => {
         console.log('You WIN!');
-        setGameOver(true);
         setTimerOn(false);
     }
 

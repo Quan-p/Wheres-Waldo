@@ -3,7 +3,7 @@ import AD from '../assets/AD2.222.jpg';
 import KennyMcCormick from '../assets/characters/KennyMcCormick.png';
 import Meg_Griffin from '../assets/characters/Meg_Griffin.png';
 import Tom from '../assets/characters/Tom.png';
-import { db, charList } from '../firebase';
+import { charList } from '../firebase';
 import DropdownMenu from './DropdownMenu';
 import './game.styles.scss';
 import GameEnd from './GameEnd';
@@ -39,7 +39,6 @@ const Game2 = () => {
     const [showModal, setShowModal] = useState(false);
     const [popup, setPopup] = useState(false);
     const [foundMsg, setFoundMsg] = useState();
-    const [gameOver, setGameOver] = useState(true);
     const [time, setTime] = useState(0);
     const [timerOn, setTimerOn] = useState(false);
 
@@ -86,13 +85,11 @@ const Game2 = () => {
 
     const handleStart = () => {
         console.log('Game Started');
-        setGameOver(false);
         setGameBackground(AD);
         };
 
     const handleWin = () => {
         console.log('You WIN!');
-        setGameOver(true);
         setTimerOn(false)
     }
 
@@ -134,7 +131,7 @@ const Game2 = () => {
             </div>
             
             <div className='img-container'>
-                <img src={AD} alt='artwork' onClick={handleClick}></img>
+                <img src={gameBackground} alt='artwork' onClick={handleClick}></img>
                 {showDropdown && (
                     <DropdownMenu 
                         charInfo={charInfo}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 function Timer(props) {
     let sec = ("0" + (Math.floor(props.time / 1000) % 60)).slice(-2);

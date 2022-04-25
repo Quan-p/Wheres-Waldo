@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
-import Timer from './Timer';
 import './Nav.styles.scss'
+
 const Nav = (props) => {
     const [stickyClass, setStickyClass] = useState('')
-    const [time, setTime] = useState(0);
-    const [timerOn, setTimerOn] = useState(false);
     
     useEffect(() => {
         window.addEventListener('scroll', stickNavbar);

@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import './DropdownMenu.styles.scss'
 
 const DropdownMenu = (props) => {
     const charList = props.charList;
-    const boardSize = props.boardSize;
     let xPos = props.userCoords[0];
     let yPos = props.userCoords[1];
     let xCursor = props.cursorCoords[0];
