@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Wheres-Waldo/static/css/main.c3928069.css",
-    "main.js": "/Wheres-Waldo/static/js/main.25fd2785.js",
+    "main.js": "/Wheres-Waldo/static/js/main.0ade9ae7.js",
     "static/media/AD2.222.jpg": "/Wheres-Waldo/static/media/AD2.222.2561e556ffcd97d2871c.jpg",
     "static/media/famous_dogs.jpg": "/Wheres-Waldo/static/media/famous_dogs.164ccce3912183918939.jpg",
     "static/media/Max.png": "/Wheres-Waldo/static/media/Max.0951958feb8dde78e1e9.png",
@@ -12,10 +12,10 @@
     "index.html": "/Wheres-Waldo/index.html",
     "static/media/custom-cursor.svg": "/Wheres-Waldo/static/media/custom-cursor.090c8d9852d4834d55da.svg",
     "main.c3928069.css.map": "/Wheres-Waldo/static/css/main.c3928069.css.map",
-    "main.25fd2785.js.map": "/Wheres-Waldo/static/js/main.25fd2785.js.map"
+    "main.0ade9ae7.js.map": "/Wheres-Waldo/static/js/main.0ade9ae7.js.map"
   },
   "entrypoints": [
     "static/css/main.c3928069.css",
-    "static/js/main.25fd2785.js"
+    "static/js/main.0ade9ae7.js"
   ]
 }
