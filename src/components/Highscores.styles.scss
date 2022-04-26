@@ -1,8 +1,13 @@
 .highscore-container {
-    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
     .label-container {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         gap: 25px;
 
         .label {
