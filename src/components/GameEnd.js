@@ -20,9 +20,8 @@ const GameEnd = (props) => {
     let location = useLocation();
 
     const handleSubmit = (e) => {
-        
         e.preventDefault();
-        changeVis();
+        
         if (location.pathname === '/game1') {
             addNewScore(playerName, totalSec);
         } else if (location.pathname === '/game2') {
@@ -41,6 +40,8 @@ const GameEnd = (props) => {
             });
             return characters;
         })
+
+
     };
 
     return props.showModal ? (
@@ -52,7 +53,7 @@ const GameEnd = (props) => {
             </div>
                 
             <div className='main-modal'>
-                <h2>Modal Window</h2>
+                <h2>High Scores</h2>
                 <div className="content">
                     <div className='highscores'>
                         <Highscores /> 
@@ -63,16 +64,19 @@ const GameEnd = (props) => {
                             <p>
                                 Your Time: {Math.floor(totalSec % 3600 / 60).toString().padStart(2,'0')}:{Math.floor(totalSec % 60).toString().padStart(2,'0')}
                             </p>
-                            <h2>Enter Name</h2>
-                            <input type='text' id='name' placeholder='Anonymous' onChange={(e) => setPlayerName(e.target.value)} required></input>
-                            <button type='submit'>SUBMIT</button>
+                            <h2 className='name-header'>Enter Name</h2>
+                            <div className='form-group field'>
+                                <input className='form-field' type='text' id='name' placeholder='Name' name='name' onChange={(e) => setPlayerName(e.target.value)} required></input>
+                                <label className='form-label'>Name</label>
+                            </div>
+                            <button className='form-btn'type='submit'>SUBMIT</button>
                         </form>
                     :   <p>
                             Sorry, your time wasn't a high score.
                             <br/>
                             <br/>
                             Your Time: {Math.floor(totalSec % 3600 / 60).toString().padStart(2,'0')}:{Math.floor(totalSec % 60).toString().padStart(2,'0')}
-                            <button className='restart-btn'>Play Again</button>
+                            <button className='form-btn'>Play Again</button>
                         </p>}
                     </div>
                 </div>

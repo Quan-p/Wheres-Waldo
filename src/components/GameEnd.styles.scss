@@ -1,7 +1,7 @@
 .modal-show {  
     position: absolute;
     margin: auto;
-    width: 300px;
+    width: 50%;
     height: fit-content;
     background: #ADADAD;
     border: none;
@@ -25,6 +25,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    .highscores {
+        border: 3px #565656 solid;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+}
 }
 
 h2 {
@@ -33,21 +45,24 @@ h2 {
     justify-content: center;
     width: 100%;
 }
-.highscores {
-    border: 1px black solid;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-}
+
+
 
 .score-submit {
+    display: flex;
+    flex-direction: column;
     height: 100%;
     margin-bottom: 15px;
+    width: 100%;
+    align-items: center;
+
     h2 {
         margin-bottom: 5px;
     }
+}
+
+.name-header {
+    margin-top: 0;
 }
 
 // COLORS for close container
@@ -87,9 +102,7 @@ $tomatored: #F25C66;
 
     label{
         color: white;
-        font-family: Helvetica, Arial, sans-serif; 
-    font-family: Helvetica, Arial, sans-serif; 
-        font-family: Helvetica, Arial, sans-serif; 
+        font-family: 'Nunito Sans', sans-serif;
         font-size: 10px;
         text-transform: uppercase;
         letter-spacing: 2px;
@@ -116,7 +129,93 @@ $tomatored: #F25C66;
     opacity: 1;
 }
 
+.form-btn {
+    border: none;
+    border-radius: 14px;
+    padding: 10px;
+    margin: 10px;
+    width: 80px;
+    cursor: pointer;
+    transition: .4s ease-out;
+    font-weight: 700;
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: #565656;
+    color: white;
+}
 
+.form-btn:hover {
+    background-color: #ddd;
+    color: #565656;
+}
 
+form {
+    p {
+        text-align: center;
+        font-size: 22px;
+    }
+}
 
+$primary: #11998e;
+$secondary: #38ef7d;
+$white: #fff;
+$gray: #565656;
 
+.form-group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 90%;
+}
+
+.form-field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid $gray;
+    outline: 0;
+    font-size: 1.3rem;
+    color: $white;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+        color: transparent;
+    }
+
+    &:placeholder-shown ~ .form-label {
+        font-size: 1.3rem;
+        cursor: text;
+        top: 20px;
+    }
+}
+
+.form-label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: $gray;
+}
+
+.form-field:focus {
+    ~ .form-label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 1rem;
+        color: $primary;
+        font-weight:700;    
+  }
+    padding-bottom: 6px;  
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, $primary,$secondary);
+    border-image-slice: 1;
+}
+/* reset input */
+.form-field{
+    &:required,&:invalid { box-shadow:none; }
+}

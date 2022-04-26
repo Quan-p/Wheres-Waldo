@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation } from 'react-router';
 import { v4 as uuidv4 } from 'uuid';
 import { highScores, highScores2 } from '../firebase';
+import './Highscores.styles.scss';
 
 const Highscores = (props) => {
     let location = useLocation();
@@ -12,17 +13,24 @@ const Highscores = (props) => {
     let topTen2 = highScores2.slice(0, 10);
 
     return (
-        <div>
+        <div className='highscore-container'>
             
             {(location.pathname === '/game1') ? (topTen.map((player) => (
-                <div key={uuidv4()}>
+                <div className='label-container' key={uuidv4()}>
+                    <div className='label'>
+                        Name: 
+                    </div>
+                    {player.Name} 
+                    <div className='label'>
+                        Time: 
+                    </div>
+                    {Math.floor(player.sec % 3600 / 60).toString().padStart(2,'0')}:{Math.floor(player.sec % 60).toString().padStart(2,'0')} 
+                </div>
+            ))) : topTen2.map((player) => (
+                <div className='label-container' key={uuidv4()}>
                     Name: {player.Name} Time: {Math.floor(player.sec % 3600 / 60).toString().padStart(2,'0')}:{Math.floor(player.sec % 60).toString().padStart(2,'0')} 
                 </div>
-             ))) : topTen2.map((player) => (
-                <div key={uuidv4()}>
-                    Name: {player.Name} Time: {Math.floor(player.sec % 3600 / 60).toString().padStart(2,'0')}:{Math.floor(player.sec % 60).toString().padStart(2,'0')} 
-                </div>
-             ))}
+            ))}
         </div>
     )
 } 
