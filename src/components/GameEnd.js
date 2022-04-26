@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Highscores from './Highscores';
-import { useLocation } from 'react-router';
-import { addNewScore, addNewScore2, highScores } from "../firebase";
+import { useLocation, useNavigate } from 'react-router';
+import { db, addNewScore, addNewScore2, highScores } from "../firebase";
 import './GameEnd.styles.scss';
 
 const GameEnd = (props) => {
     const [visibility, setVisibility] = useState('modal-show');
     const [playerName, setPlayerName] = useState('');
+    let navigate = useNavigate();
 
     const changeVis = () => {
         setVisibility('modal-hidden');
@@ -24,7 +25,7 @@ const GameEnd = (props) => {
         
         if (location.pathname === '/game1') {
             addNewScore(playerName, totalSec);
-        } else if (location.pathname === '/game2') {
+        } else if (location.pathname === '/Game2') {
             addNewScore2(playerName, totalSec);
         }
         
@@ -41,7 +42,7 @@ const GameEnd = (props) => {
             return characters;
         })
 
-
+        //navigate('/Wheres-Waldo/', { replace: true });
     };
 
     return props.showModal ? (

@@ -3,7 +3,7 @@ import game2 from '../assets/game2.jpg';
 import KennyMcCormick from '../assets/characters/KennyMcCormick.png';
 import Meg_Griffin from '../assets/characters/Meg_Griffin.png';
 import Tom from '../assets/characters/Tom.png';
-import { charList } from '../firebase';
+import { db, charList } from '../firebase';
 import DropdownMenu from './DropdownMenu';
 import './game.styles.scss';
 import GameEnd from './GameEnd';

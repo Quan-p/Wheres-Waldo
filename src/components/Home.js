@@ -35,8 +35,8 @@ const Home = () => {
             </div>
             <form className='diff-form' onSubmit={handleSubmit}>
                 <h2>Difficulty:</h2>
-                <input type='radio' name='difficulty' value='/Game1' onChange={(e) => setDifficulty('/Game1')} required/>Easy
-                <input type='radio' name='difficulty' value='/Game2' onChange={(e) => setDifficulty('/Game2')} required/>Hard
+                <input type='radio' name='difficulty' value='/game1' onChange={(e) => setDifficulty('/Game1')} required/>Easy
+                <input type='radio' name='difficulty' value='/game2' onChange={(e) => setDifficulty('/Game2')} required/>Hard
                 <br/>
                 <br/>
                 <button className='btn draw-border' type='submit'>PLAY</button>

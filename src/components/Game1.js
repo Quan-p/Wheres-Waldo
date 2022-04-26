@@ -3,7 +3,7 @@ import famous_dogs from '../assets/famous_dogs.jpg';
 import CopperHound from '../assets/characters/CopperHound.png';
 import Max from '../assets/characters/Max.png';
 import Snuffles from '../assets/characters/Snuffles.png';
-import { charList } from '../firebase';
+import { db, charList } from '../firebase';
 import DropdownMenu from './DropdownMenu';
 import './game.styles.scss';
 import GameEnd from './GameEnd';

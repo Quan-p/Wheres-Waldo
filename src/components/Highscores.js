@@ -6,6 +6,7 @@ import './Highscores.styles.scss';
 
 const Highscores = (props) => {
     let location = useLocation();
+    console.log(location.pathname);
     highScores.sort((a, b) => a.sec - b.sec);
     let topTen = highScores.slice(0, 10);
     
@@ -15,7 +16,7 @@ const Highscores = (props) => {
     return (
         <div className='highscore-container'>
             
-            {(location.pathname === '/game1') ? (topTen.map((player) => (
+            {(location.pathname === '/Game1') ? (topTen.map((player) => (
                 <div className='label-container' key={uuidv4()}>
                     <div className='label'>
                         Name: 
