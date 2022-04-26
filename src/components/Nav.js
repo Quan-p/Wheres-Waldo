@@ -34,10 +34,10 @@ const Nav = (props) => {
                         <Link to="/Wheres-Waldo/">Home</Link>
                     </div>
                     <div>
-                        <Link to="/game1">Game 1</Link>
+                        <Link to="/Game1">Game 1</Link>
                     </div>
                     <div>
-                        <Link to="/game2">Game 2</Link>
+                        <Link to="/Game2">Game 2</Link>
                     </div>
                 </div>
             </nav>
