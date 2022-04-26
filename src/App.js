@@ -12,8 +12,8 @@ function App() {
     <Nav />
       <Routes>
           <Route exact path='/Wheres-Waldo/' element={<Home />} />
-          <Route exact path='/game1' element={<Game1 />} />
-          <Route exact path='/game2' element={<Game2 />} />
+          <Route exact path='/Game1' element={<Game1 />} />
+          <Route exact path='/Game2' element={<Game2 />} />
       </Routes>
     </BrowserRouter>
   );
