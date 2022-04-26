@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation } from 'react-router';
 import { v4 as uuidv4 } from 'uuid';
-import { highScores, highScores2 } from '../firebase';
+import { db, highScores, highScores2, getHighScores } from '../firebase';
 import './Highscores.styles.scss';
 
 const Highscores = (props) => {
     let location = useLocation();
-    console.log(location.pathname);
     highScores.sort((a, b) => a.sec - b.sec);
     let topTen = highScores.slice(0, 10);
     
@@ -21,11 +20,15 @@ const Highscores = (props) => {
                     <div className='label'>
                         Name: 
                     </div>
-                    {player.Name} 
+                    <div className='label-content'>
+                    {player.Name}
+                    </div> 
                     <div className='label'>
                         Time: 
                     </div>
-                    {Math.floor(player.sec % 3600 / 60).toString().padStart(2,'0')}:{Math.floor(player.sec % 60).toString().padStart(2,'0')} 
+                    <div className='label-content'>
+                        {Math.floor(player.sec % 3600 / 60).toString().padStart(2,'0')}:{Math.floor(player.sec % 60).toString().padStart(2,'0')}
+                    </div>
                 </div>
             ))) : topTen2.map((player) => (
                 <div className='label-container' key={uuidv4()}>

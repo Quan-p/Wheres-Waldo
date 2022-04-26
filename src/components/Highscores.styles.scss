@@ -2,11 +2,17 @@
     
     .label-container {
         display: flex;
-        gap: 10px;
-        flex-direction: row;
+        justify-content: space-between;
+        gap: 25px;
 
         .label {
             font-weight: 700;
+            min-width: 50px;
         }
+
+        .label-content {
+            min-width: 100px;
+        }
+
     }
 }
