@@ -23,7 +23,7 @@ const GameEnd = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        if (location.pathname === '/game1') {
+        if (location.pathname === '/Game1') {
             addNewScore(playerName, totalSec);
         } else if (location.pathname === '/Game2') {
             addNewScore2(playerName, totalSec);
@@ -42,7 +42,7 @@ const GameEnd = (props) => {
             return characters;
         })
 
-        //navigate('/Wheres-Waldo/', { replace: true });
+        navigate('/Wheres-Waldo/', { replace: true });
     };
 
     return props.showModal ? (
