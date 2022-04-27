@@ -4,6 +4,7 @@ import CopperHound from '../assets/characters/CopperHound.png';
 import Max from '../assets/characters/Max.png';
 import Snuffles from '../assets/characters/Snuffles.png';
 import { db, charList } from '../firebase';
+import { getDocs, collection } from '@firebase/firestore/lite';
 import DropdownMenu from './DropdownMenu';
 import './game.styles.scss';
 import GameEnd from './GameEnd';
@@ -41,6 +42,8 @@ const Game1 = (props) => {
     const [foundMsg, setFoundMsg] = useState();
     const [time, setTime] = useState(0);
     const [timerOn, setTimerOn] = useState(false);
+    const [highScore, setHighScore] = useState();
+    const [slowestTime, setSlowestTime] = useState();
 
     const origWidth = 3000;
     const origHeight = 3000;
@@ -103,12 +106,28 @@ const Game1 = (props) => {
             return characters;
         });
     }
+    
+    const getHighScores = async (db) => {
+        let scoreArray = [];
+        const querySnapshot = await getDocs(collection(db, "highscores"));
+        querySnapshot.forEach((doc) => {
+          let user = doc.data();
+          scoreArray.push(user);
+        });
+        
+        scoreArray.sort((a, b) => a.sec - b.sec);
+        let topTen = scoreArray.slice(0, 10);
+        setHighScore(topTen);
+        let lastTime = topTen[topTen.length - 1].sec;
+        setSlowestTime(lastTime);
+    }
 
     useEffect(() => {
         handleStart();
         setTime(0);
         setTimerOn(true);
         handleReset();
+        getHighScores(db);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -151,6 +170,8 @@ const Game1 = (props) => {
                     setTime={setTime} 
                     setTimerOn={setTimerOn}
                     setCharacterInfo={setCharacterInfo}
+                    highScore={highScore}
+                    slowestTime={slowestTime}
                 />
             </div>
             <footer>

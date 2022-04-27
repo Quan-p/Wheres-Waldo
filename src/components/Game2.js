@@ -4,6 +4,7 @@ import KennyMcCormick from '../assets/characters/KennyMcCormick.png';
 import Meg_Griffin from '../assets/characters/Meg_Griffin.png';
 import Tom from '../assets/characters/Tom.png';
 import { db, charList } from '../firebase';
+import { getDocs, collection } from '@firebase/firestore/lite';
 import DropdownMenu from './DropdownMenu';
 import './game.styles.scss';
 import GameEnd from './GameEnd';
@@ -41,6 +42,8 @@ const Game2 = () => {
     const [foundMsg, setFoundMsg] = useState();
     const [time, setTime] = useState(0);
     const [timerOn, setTimerOn] = useState(false);
+    const [highScore2, setHighScore2] = useState();
+    const [slowestTime, setSlowestTime] = useState();
 
     const origWidth = 1988;
     const origHeight = 3708;
@@ -104,11 +107,27 @@ const Game2 = () => {
         });
     }
 
+    const getHighScores2 = async (db) => {
+        let scoreArray2 = [];
+        const highScoreSnapshot = await getDocs(collection(db, "highscores2"));
+        highScoreSnapshot.forEach((doc) => {
+          let user = doc.data();
+          scoreArray2.push(user);
+        });
+
+        scoreArray2.sort((a, b) => a.sec - b.sec);
+        let topTen2 = scoreArray2.slice(0, 10);
+        setHighScore2(topTen2);
+        let lastTime = topTen2[topTen2.length - 1].sec;
+        setSlowestTime(lastTime);
+    }
+
     useEffect(() => {
         handleStart();
         setTime(0);
         setTimerOn(true);
         handleReset();
+        getHighScores2(db);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -151,6 +170,8 @@ const Game2 = () => {
                     setTime={setTime} 
                     setTimerOn={setTimerOn}
                     setCharacterInfo={setCharacterInfo}
+                    highScore2={highScore2}
+                    slowestTime={slowestTime}
                 />
             </div>
             <footer>
