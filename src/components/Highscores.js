@@ -26,7 +26,18 @@ const Highscores = (props) => {
                 </div>
             ))) : props.highScore2.map((player) => (
                 <div className='label-container' key={uuidv4()}>
-                    Name: {player.Name} Time: {Math.floor(player.sec % 3600 / 60).toString().padStart(2,'0')}:{Math.floor(player.sec % 60).toString().padStart(2,'0')} 
+                    <div className='label'>
+                        Name: 
+                    </div>
+                    <div className='label-content'>
+                    {player.Name}
+                    </div> 
+                    <div className='label'>
+                        Time: 
+                    </div>
+                    <div className='label-content'>
+                        {Math.floor(player.sec % 3600 / 60).toString().padStart(2,'0')}:{Math.floor(player.sec % 60).toString().padStart(2,'0')}                    
+                    </div> 
                 </div>
             ))}
         </div>
