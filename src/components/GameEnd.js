@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Highscores from './Highscores';
 import { useLocation, useNavigate } from 'react-router';
 import { db, addNewScore, addNewScore2, highScores } from "../firebase";
@@ -14,10 +14,7 @@ const GameEnd = (props) => {
     };
 
     let totalSec = props.time / 1000;
-
-    highScores.sort((a, b) => a.sec - b.sec);
-    let slowestTime = highScores[highScores.length - 1];
-
+    
     let location = useLocation();
 
     const handleSubmit = (e) => {
@@ -57,10 +54,10 @@ const GameEnd = (props) => {
                 <h2>High Scores</h2>
                 <div className="content">
                     <div className='highscores'>
-                        <Highscores /> 
+                        <Highscores highScore={props.highScore} highScore2={props.highScore2} /> 
                     </div>
                     <div>
-                    {(totalSec < slowestTime.sec) ? 
+                    {(totalSec < props.slowestTime) ? 
                         <form className='score-submit' onSubmit={handleSubmit}>
                             <p>
                                 Your Time: {Math.floor(totalSec % 3600 / 60).toString().padStart(2,'0')}:{Math.floor(totalSec % 60).toString().padStart(2,'0')}
