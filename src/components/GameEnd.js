@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Highscores from './Highscores';
 import { useLocation, useNavigate } from 'react-router';
-import { db, addNewScore, addNewScore2, highScores } from "../firebase";
+import { addNewScore, addNewScore2 } from "../firebase";
 import './GameEnd.styles.scss';
 
 const GameEnd = (props) => {

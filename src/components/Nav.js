@@ -3,7 +3,7 @@ import { Outlet, Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import './Nav.styles.scss'
 
-const Nav = (props) => {
+const Nav = () => {
     const [stickyClass, setStickyClass] = useState('')
     
     useEffect(() => {
