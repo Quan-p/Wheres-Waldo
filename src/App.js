@@ -8,7 +8,7 @@ import Nav from './components/Nav';
 
 function App() {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename='Wheres-Waldo'>
     <Nav />
       <Routes>
           <Route exact path='/Wheres-Waldo/' element={<Home />} />
