@@ -39,8 +39,27 @@ const GameEnd = (props) => {
             return characters;
         })
 
-        navigate('#/Wheres-Waldo/', { replace: true });
+        navigate('/', { replace: true });
     };
+
+    const handlePlayAgain = (e) => {
+        e.preventDefault();
+
+        props.setTime(0);
+        props.setTimerOn(true);
+        if (playerName !== '') {
+            setPlayerName('')
+        }
+        props.setCharacterInfo((state) => {
+            const characters = state.map((char) => {
+                char.found = false;
+                return char;
+            });
+            return characters;
+        })
+
+        navigate('/', { replace: true });
+    }
 
     return props.showModal ? (
         <div className={visibility} id='modal'>
@@ -74,7 +93,7 @@ const GameEnd = (props) => {
                             <br/>
                             <br/>
                             Your Time: {Math.floor(totalSec % 3600 / 60).toString().padStart(2,'0')}:{Math.floor(totalSec % 60).toString().padStart(2,'0')}
-                            <button className='form-btn' onSubmit={handleSubmit}>Play Again</button>
+                            <button className='form-btn' onSubmit={handlePlayAgain}>Play Again</button>
                         </p>}
                     </div>
                 </div>
