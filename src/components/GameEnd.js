@@ -39,7 +39,7 @@ const GameEnd = (props) => {
             return characters;
         })
 
-        navigate('/Wheres-Waldo/', { replace: true });
+        navigate('#/Wheres-Waldo/', { replace: true });
     };
 
     return props.showModal ? (
