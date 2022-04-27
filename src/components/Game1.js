@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import famous_dogs from '../assets/famous_dogs.jpg';
 import CopperHound from '../assets/characters/CopperHound.png';
 import Max from '../assets/characters/Max.png';
@@ -114,7 +114,7 @@ const Game1 = (props) => {
           let user = doc.data();
           scoreArray.push(user);
         });
-        
+
         scoreArray.sort((a, b) => a.sec - b.sec);
         let topTen = scoreArray.slice(0, 10);
         setHighScore(topTen);
