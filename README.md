@@ -10,7 +10,7 @@ This photo tagging game was part of the self-taught education of The Odin Projec
 
 The player is given a photograph with a lot of complexity and is meant to locate several familiar characters.
 
-Firebase is used as a backend to store the game data & highscores for each level. This project as made with the React JS Library, CSS, and Firebase.
+Firebase is used as a backend to store the game data & highscores for each level.
 
 ### Homepage
 
