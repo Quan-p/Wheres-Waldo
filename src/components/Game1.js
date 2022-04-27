@@ -109,7 +109,7 @@ const Game1 = (props) => {
     
     const getHighScores = async (db) => {
         let scoreArray = [];
-        const querySnapshot = await getDocs(collection(db, "highscores"));
+        const querySnapshot = await getDocs(collection(db, 'highscores'));
         querySnapshot.forEach((doc) => {
           let user = doc.data();
           scoreArray.push(user);

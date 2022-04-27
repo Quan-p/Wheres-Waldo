@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { useLocation } from 'react-router';
 import { v4 as uuidv4 } from 'uuid';
 import './Highscores.styles.scss';

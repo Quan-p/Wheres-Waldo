@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 
 function Timer(props) {
-    let sec = ("0" + (Math.floor(props.time / 1000) % 60)).slice(-2);
-    let min = ("0" + (Math.floor(props.time / 60000) % 60)).slice(-2);
+    let sec = ('0' + (Math.floor(props.time / 1000) % 60)).slice(-2);
+    let min = ('0' + (Math.floor(props.time / 60000) % 60)).slice(-2);
 
     useEffect(() => {
         let interval = null;

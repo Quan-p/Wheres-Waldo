@@ -25,19 +25,19 @@ const Nav = () => {
         <div className={`nav-container ${stickyClass}`}>
             <nav className='dropdown-nav'>
                 <div >
-                    <button className="dropbtn">
+                    <button className='dropbtn'>
                         <MenuIcon />
                     </button>
                 </div>
                 <div className='dropdown-content'>
                     <div>
-                        <Link to="/Wheres-Waldo/">Home</Link>
+                        <Link to='/Wheres-Waldo/'>Home</Link>
                     </div>
                     <div>
-                        <Link to="/Game1">Game 1</Link>
+                        <Link to='/Game1'>Game 1</Link>
                     </div>
                     <div>
-                        <Link to="/Game2">Game 2</Link>
+                        <Link to='/Game2'>Game 2</Link>
                     </div>
                 </div>
             </nav>

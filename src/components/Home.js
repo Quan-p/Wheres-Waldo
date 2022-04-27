@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import './Home.styles.scss'
 
 const Home = () => {
@@ -24,7 +24,7 @@ const Home = () => {
                 <div className='howTo'>
                     <h2>How to Play</h2>
                     <ol>
-                        <li>Select a difficulty then click "Play".</li>
+                        <li>Select a difficulty then click 'Play'.</li>
                         <li>The timer will start once the image loads.</li>
                         <li>Find the location of a character and click on them.</li>
                         <li>Choose the correct character from the list.</li>

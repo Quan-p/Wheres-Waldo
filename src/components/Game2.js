@@ -109,7 +109,7 @@ const Game2 = () => {
 
     const getHighScores2 = async (db) => {
         let scoreArray2 = [];
-        const highScoreSnapshot = await getDocs(collection(db, "highscores2"));
+        const highScoreSnapshot = await getDocs(collection(db, 'highscores2'));
         highScoreSnapshot.forEach((doc) => {
           let user = doc.data();
           scoreArray2.push(user);

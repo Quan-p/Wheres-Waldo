@@ -6,13 +6,13 @@ import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore/li
 
 // TODO: Replace the following with your app's Firebase project configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD3iHQ6zYTF8VdXiuDTil50VnKaL8-kG44",
-  authDomain: "where-swaldo-29082.firebaseapp.com",
-  projectId: "where-swaldo-29082",
-  storageBucket: "where-swaldo-29082.appspot.com",
-  messagingSenderId: "89792480115",
-  appId: "1:89792480115:web:cbf7e0632ebbdaea093b06",
-  measurementId: "G-TY3DSK310Q"
+  apiKey: 'AIzaSyD3iHQ6zYTF8VdXiuDTil50VnKaL8-kG44',
+  authDomain: 'where-swaldo-29082.firebaseapp.com',
+  projectId: 'where-swaldo-29082',
+  storageBucket: 'where-swaldo-29082.appspot.com',
+  messagingSenderId: '89792480115',
+  appId: '1:89792480115:web:cbf7e0632ebbdaea093b06',
+  measurementId: 'G-TY3DSK310Q'
 };
 
 const app = initializeApp(firebaseConfig);

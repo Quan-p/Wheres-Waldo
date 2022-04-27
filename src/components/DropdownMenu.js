@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import './DropdownMenu.styles.scss'
 
 const DropdownMenu = (props) => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import './Popup.styles.scss';
 
 const Popup = (props) => {
